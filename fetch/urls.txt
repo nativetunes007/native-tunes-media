@@ -1,0 +1,4 @@
+hoodie_back_grey.jpg https://images-api.printify.com/mockup/6adf8030260c17a8ff05c0f8/32904/98425/x.jpg?camera_label=back
+hoodie_front_grey.jpg https://images-api.printify.com/mockup/6adf8030260c17a8ff05c0f8/32904/98424/x.jpg?camera_label=front
+hoodie_back_white.jpg https://images-api.printify.com/mockup/6adf8030260c17a8ff05c0f8/32912/98425/x.jpg?camera_label=back
+hoodie_back_black.jpg https://images-api.printify.com/mockup/6adf8030260c17a8ff05c0f8/32920/98425/x.jpg?camera_label=back
