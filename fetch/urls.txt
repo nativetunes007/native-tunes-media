@@ -1,5 +1,10 @@
-chk3_g4_hoodie.jpg https://images.printify.com/mockup/6adf803bbc612c8be10e6467/32919/98424/x.jpg?r=3
-chk3_r3_hoodie.jpg https://images.printify.com/mockup/6adf83c4c392daed6500d8ac/32919/98424/x.jpg?r=3
-chk3_n2_hoodie.jpg https://images.printify.com/mockup/6ae319a65075a961fe0b2526/32919/98424/x.jpg?r=3
-chk3_g7_hoodie.jpg https://images.printify.com/mockup/6adf8030260c17a8ff05c0f8/32919/98424/x.jpg?r=3
-chk3_g1_hoodie_front.jpg https://images.printify.com/mockup/6ae236c2764a85d2070dfa45/32920/98424/x.jpg?r=3
+chk4_1g1b.jpg https://images.printify.com/mockup/6ae236c2764a85d2070dfa45/32920/98425/x.jpg?r=4
+chk4_2g2b.jpg https://images.printify.com/mockup/6ae236c542c7da913c0b9492/32920/98425/x.jpg?r=4
+chk4_3g3b.jpg https://images.printify.com/mockup/6ae236caab410d0b5604ee79/32920/98425/x.jpg?r=4
+chk4_4g8b.jpg https://images.printify.com/mockup/6ae236cc314fd735ac0d83af/32920/98425/x.jpg?r=4
+chk4_5g4b.jpg https://images.printify.com/mockup/6adf803bbc612c8be10e6467/32919/98424/x.jpg?r=4
+chk4_6g7b.jpg https://images.printify.com/mockup/6adf8030260c17a8ff05c0f8/32919/98424/x.jpg?r=4
+chk4_7r3b.jpg https://images.printify.com/mockup/6adf83c4c392daed6500d8ac/32919/98424/x.jpg?r=4
+chk4_8n2b.jpg https://images.printify.com/mockup/6ae319a65075a961fe0b2526/32919/98424/x.jpg?r=4
+chk4_9g4w.jpg https://images.printify.com/mockup/6adf803bbc612c8be10e6467/32911/98424/x.jpg?r=4
+chk4_9r3w.jpg https://images.printify.com/mockup/6adf83c4c392daed6500d8ac/32911/98424/x.jpg?r=4
