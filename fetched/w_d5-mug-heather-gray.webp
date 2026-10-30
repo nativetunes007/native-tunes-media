@@ -1,0 +1,1253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Native Tunes shop: tees, hoodies, mugs and more with art from our sleep and meditation music.">
+<meta property="og:title" content="Native Tunes Shop">
+<meta property="og:description" content="Wear the calm. Art from the music you fall asleep to.">
+<meta property="og:image" content="https://nativetunesmedia.com/img/banner.jpg">
+<meta property="og:url" content="https://nativetunesmedia.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070b1f">
+<title>Native Tunes Shop</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Poppins:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: night-sky home (A) with a banner hero; aurora-glass subpages (B); the shop catalog sits on a white panel so products read clearly. */
+:root{
+  --night:#070b1f; --night-2:#0b1230; --panel:#121a3d; --line:#22305e;
+  --gold:#d4a75f; --gold-soft:#f0d9a8; --star:#b8cbe8; --mist:#9fb0d6; --ink:#dfe6f7;
+  --teal:#7fe3d0; --violet:#7850c8;
+  --paper:#ffffff; --paper-2:#f3f2ef; --paper-ink:#141428; --paper-mute:#5c6078; --paper-line:#e4e2dc;
+  --font-brand:"Cinzel", "Trajan Pro", Georgia, serif;
+  --font-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --font-body:"Poppins", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--night);-webkit-text-size-adjust:100%}
+body{margin:0}
+[hidden]{display:none!important}
+body{background:transparent;color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;overflow-x:hidden}
+img{max-width:100%}
+#sky{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;display:block}
+a{color:var(--gold-soft);text-decoration:none}
+a:hover{color:#fff}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;border-radius:999px;font:600 15px var(--font-body);cursor:pointer;border:1.5px solid transparent;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:var(--night-2)}
+.btn-gold:hover{background:var(--gold-soft);color:var(--night-2)}
+.btn-ghost{border-color:var(--star);color:var(--ink);background:transparent}
+.btn-ghost:hover{color:#fff;border-color:#fff}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--star)}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(7,11,31,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:var(--night)}
+.head-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--gold-soft)}
+.brand img{width:44px;height:44px;border-radius:50%}
+.brand span{font-family:var(--font-brand);font-weight:700;letter-spacing:.2em;font-size:19px}
+.nav{display:flex;flex-wrap:wrap;gap:4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:999px;padding:5px}
+.nav a,.nav button{padding:9px 16px;border-radius:999px;color:var(--ink);font:500 14px var(--font-body);background:none;border:0;cursor:pointer}
+.nav a[aria-current="page"]{background:rgba(255,255,255,.12);color:#fff}
+.cart-btn{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 16px;border-radius:999px;border:0;background:var(--gold);color:var(--night-2);font:600 14px var(--font-body);cursor:pointer}
+.head-row .nav{margin-left:auto}
+
+/* pages */
+.page{display:none}
+.page.on{display:block}
+
+/* HOME (A) */
+/* banner always shown whole at its true 8:3 shape, so nothing is cropped on any screen */
+.hero{position:relative;display:flex;flex-direction:column}
+.hero-img{display:block;width:100%;height:auto;aspect-ratio:8/3;mix-blend-mode:lighten}
+.hero-inner{position:relative;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;padding-block:22px 8px;width:100%}
+.hero-inner p{font-size:19px;color:var(--star);max-width:520px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.section{padding-block:56px 32px;display:flex;flex-direction:column;gap:28px}
+.section-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;position:relative}
+.loop-card{position:relative;margin:0 auto 26px;width:230px;pointer-events:none;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid rgba(240,217,168,.45);box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 40px rgba(127,232,224,.18);background:#0a1028;display:block}
+.loop-card video{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:600px){.loop-card{width:200px;margin-bottom:18px}}
+.home h2{font-family:var(--font-brand);font-size:clamp(28px,4vw,38px);color:var(--gold-soft)}
+.new-tag{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--night-2);background:linear-gradient(90deg,#f0d9a8,#d4a75f);padding:6px 14px;border-radius:999px;align-self:flex-start;margin-bottom:10px;box-shadow:0 0 24px rgba(240,217,168,.35)}
+.h2-link{color:inherit}
+.h2-link:hover{color:#fff}
+.see-all{font-size:17px;min-height:54px;padding:0 30px;box-shadow:0 10px 30px rgba(212,167,95,.35)}
+.see-all-row{display:flex;justify-content:center;margin-top:4px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;perspective:1200px}
+.tilt{background:linear-gradient(160deg,rgba(20,32,70,.92),rgba(11,18,48,.92));border:1px solid var(--line);border-radius:22px;padding:14px;display:flex;flex-direction:column;gap:10px;color:var(--ink);transform-style:preserve-3d;transition:transform .25s ease,box-shadow .25s;box-shadow:0 24px 60px rgba(0,0,0,.45);cursor:pointer;text-align:left;font:inherit;position:relative}
+.tilt .art{background:#efeeeb;border-radius:14px;aspect-ratio:1;max-width:100%;overflow:hidden;display:block;transform:translateZ(30px)}
+.tilt .art img{width:100%;height:100%;object-fit:cover;display:block}
+.tilt .flag{position:absolute;top:22px;left:22px;z-index:2;background:var(--gold);color:var(--night-2);font:700 11px var(--font-body);letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;transform:translateZ(40px)}
+.tilt b{color:var(--gold-soft);font-weight:600}
+.tilt small{color:var(--mist);font-size:14px}
+.listen{display:flex;flex-wrap:wrap;gap:32px;align-items:center}
+.video-card{flex:1 1 420px;min-width:0;position:relative;aspect-ratio:16/9;max-width:100%;border-radius:22px;overflow:hidden;background:#0a1028;display:block}
+.video-card img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform .6s}
+.video-card:hover img{transform:scale(1.04)}
+.play{position:absolute;inset:0;margin:auto;width:78px;height:78px;border-radius:50%;background:rgba(212,167,95,.94);display:flex;align-items:center;justify-content:center}
+.listen-copy{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.listen-copy p{color:var(--star);font-size:17px}
+.listen-copy .help-line{font-size:15px;color:#f0d9a8;margin-top:-4px}
+.video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* SUBPAGES (B) */
+.aurora{background:radial-gradient(900px 500px at 88% 0%,rgba(64,180,170,.20),transparent 70%),radial-gradient(800px 600px at 6% 30%,rgba(120,80,200,.20),transparent 70%),var(--night)}
+.side-sw{position:absolute;top:14px;right:14px;display:flex;gap:4px;background:rgba(255,255,255,.92);border:1px solid var(--paper-line);border-radius:999px;padding:4px;z-index:3}
+.side-sw button{min-height:36px;padding:0 14px;border-radius:999px;border:0;background:none;color:var(--paper-ink);font:600 13px var(--font-body);cursor:pointer}
+.side-sw button[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper)}
+.acct-btn{font-weight:600!important;color:var(--gold-soft,#f0d9a8)!important;white-space:nowrap}
+.acct-modal{position:fixed;inset:0;z-index:80;background:rgba(5,7,18,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px}
+.acct-card{background:var(--paper);color:var(--paper-ink);border-radius:24px;width:min(460px,100%);max-height:100%;overflow:auto;padding:26px 24px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow-x:hidden}
+.acct-card form>*{min-width:0}
+.acct-card .chk span{flex:1;min-width:0}
+.acct-card h2{font-family:var(--font-display);font-size:28px;margin:0 0 6px}
+.acct-card p.sub{margin:0 0 16px;color:var(--paper-mute);font-size:14px}
+.acct-card form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.acct-card label{display:flex;flex-direction:column;gap:4px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--paper-mute);grid-column:span 2}
+.acct-card label.half{grid-column:span 1}
+.acct-card input{min-height:44px;border:1.5px solid var(--paper-line);border-radius:12px;padding:0 12px;font:15px var(--font-body);color:var(--paper-ink);background:var(--paper);text-transform:none;letter-spacing:0}
+.acct-card .chk{flex-direction:row;align-items:flex-start;gap:8px;text-transform:none;letter-spacing:0;font-size:13px}
+.acct-card .chk input{min-height:auto;margin-top:2px}
+.acct-card .row{grid-column:span 2;display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}
+.acct-card .err{grid-column:span 2;color:#b3261e;font-size:14px;min-height:0;margin:0}
+.acct-card .link{border:0;background:none;color:#5a3fb0;text-decoration:underline;cursor:pointer;font:14px var(--font-body);padding:0}
+.acct-x{float:right;width:40px;height:40px;border-radius:50%;border:1px solid var(--paper-line);background:var(--paper);cursor:pointer;font-size:20px;color:var(--paper-ink)}
+.acct-h3{font-family:var(--font-display);font-size:20px;margin:22px 0 8px}
+.acct-orders{display:grid;gap:10px}
+.acct-order{border:1px solid var(--paper-line);border-radius:14px;padding:12px 14px;font-size:14px}
+.acct-order ul{margin:6px 0;padding-left:18px}
+.ao-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ao-st{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--paper-2)}
+.ao-shipped{background:#dcefdc;color:#1f5c2a}
+.acct-offer{background:var(--paper-2);border-radius:14px;padding:12px 14px;font-size:14px}
+.acct-offer .link{border:0;background:none;color:#5a3fb0;text-decoration:underline;cursor:pointer;font:600 14px var(--font-body);padding:0}
+.nebula-bg{position:relative;isolation:isolate;background:transparent}
+.nebula-bg::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,11,31,.42),rgba(7,11,31,.6) 60%,rgba(7,11,31,.78)),url(img/nebula.jpg) center/cover no-repeat,var(--night);pointer-events:none}
+.sub-hero{padding-block:56px 32px;display:flex;flex-wrap:wrap;align-items:center;gap:40px}
+.sub-hero .copy{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.sub-hero h1{font-family:var(--font-display);font-weight:600;font-size:clamp(38px,6vw,62px);line-height:1.05;color:#f4f2fb}
+.sub-hero .lede{font-size:18px;color:#aab3cc;max-width:520px}
+.spin-stage{flex:1 1 360px;min-width:0;height:420px;position:relative}
+.hero-shot{flex:1 1 360px;min-width:0;max-width:460px;margin-inline:auto;border-radius:24px;overflow:hidden;background:#efeeeb;box-shadow:0 30px 70px rgba(0,0,0,.45);display:block;cursor:pointer;border:0;padding:0}
+.hero-shot img{display:block;width:100%;height:auto}
+.spin-stage canvas{width:100%!important;height:100%!important;cursor:grab}
+.spin-hint{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:13px;color:var(--mist)}
+.prose{max-width:720px;display:flex;flex-direction:column;gap:18px;padding-block:8px 72px;color:#c9d1e6}
+.prose h2{font-family:var(--font-display);font-weight:600;font-size:26px;color:#f4f2fb;margin-top:12px}
+.prose .updated{font-size:13px;color:#8a93b0;margin-top:8px}
+.prose ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.glass{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding-bottom:72px}
+.vid{display:flex;flex-direction:column;gap:10px;padding:12px;color:var(--ink)}
+.vid img{border-radius:14px;aspect-ratio:16/9;max-width:100%;object-fit:cover;width:100%}
+.vid span{font-weight:500;font-size:15px;padding:0 4px 6px}
+
+.vid .thumb{position:relative;display:block}
+.vid .thumb em{position:absolute;right:8px;bottom:8px;background:rgba(5,8,25,.82);color:#fff;font:600 12px var(--font-body);font-style:normal;padding:3px 7px;border-radius:6px}
+.list-h{font-family:var(--font-display);font-weight:600;font-size:26px;color:#f4f2fb;margin:8px 0 16px}
+.list-h small{font-size:15px;color:var(--ink);opacity:.7;font-weight:500}
+.list-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:40px}
+.list-links{display:flex;flex-wrap:wrap;gap:10px}
+.pl-thumb{position:relative;display:block;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0a1028;margin-bottom:6px;box-shadow:6px -6px 0 -2px rgba(255,255,255,.18),12px -12px 0 -4px rgba(255,255,255,.08)}
+.pl-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pl-count{position:absolute;top:0;right:0;bottom:0;width:38%;background:rgba(5,8,25,.78);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;font:600 14px var(--font-body)}
+.pl-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(5,8,25,.6);color:#fff;font:600 15px var(--font-body);letter-spacing:.06em;opacity:0;transition:opacity .2s}
+.pl:hover .pl-play,.pl:focus-visible .pl-play{opacity:1}
+.pl-thumb.pillar .bg{position:absolute;inset:0;filter:blur(14px) brightness(.6);transform:scale(3)}
+.pl-thumb.pillar .fg{position:relative;transform:translateX(-19%) scale(var(--z))}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.pl{display:flex;flex-direction:column;gap:6px;padding:12px 12px 16px;color:var(--ink);transition:transform .2s,background .2s}
+.pl:hover{transform:translateY(-3px);background:rgba(255,255,255,.09)}
+.pl svg{color:var(--gold)}
+.pl b{color:#f4f2fb;font-size:16px}
+.pl small{opacity:.75}
+.sound-btn{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(8,12,36,.72);backdrop-filter:blur(8px);color:var(--star);font:500 13px var(--font-body);cursor:pointer}
+.sound-btn[hidden]{display:none}
+
+/* SHOP: white catalog panel */
+.shop-panel{background:var(--paper-2);color:var(--paper-ink);border-radius:32px 32px 0 0;padding-block:40px 80px}
+.shop-tools{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--paper-line);background:var(--paper);color:var(--paper-ink);font:500 14px var(--font-body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+.colorswitch{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--paper-mute)}
+.swatch{width:44px;height:44px;border-radius:50%;border:2px solid var(--paper-line);cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.swatch[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,167,95,.3)}
+.swatch i{width:28px;height:28px;border-radius:50%;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--paper-line);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer;text-align:left;font:inherit;color:var(--paper-ink);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(20,20,40,.12)}
+.card .tee{position:relative;aspect-ratio:1;max-width:100%;display:block;background:#efeeeb;border-radius:16px;overflow:hidden}
+.card .tee img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.card:hover .tee img{transform:scale(1.04)}
+.card .dots{display:flex;gap:6px}
+.card .dots i{width:14px;height:14px;border-radius:50%;border:1px solid #cfccc4;display:block}
+.card b{font-size:16px;font-weight:600}
+.card .meta{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--paper-mute)}
+.card .meta strong{color:var(--paper-ink)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(5,7,18,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet{background:var(--paper);color:var(--paper-ink);border-radius:28px;width:min(1120px,100%);max-height:100%;overflow:auto;display:flex;flex-wrap:wrap}
+.viewer{flex:1 1 460px;min-width:0;position:relative;background:radial-gradient(circle at 50% 40%,#ffffff,#e9e8e4 75%);min-height:460px;border-radius:0 0 0 28px}
+.viewer canvas{display:block;width:100%!important;height:100%!important;position:absolute;inset:0;cursor:grab;touch-action:none}
+.viewer canvas:active{cursor:grabbing}
+.viewer-tools{position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;pointer-events:none}
+.viewer-tools button{pointer-events:auto}
+.tool{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--paper-line);background:rgba(255,255,255,.9);color:var(--paper-ink);font:500 13px var(--font-body);cursor:pointer}
+.badge360{position:absolute;top:14px;left:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--paper-ink);color:var(--paper);padding:6px 12px;border-radius:999px}
+.zoom-layer{position:absolute;inset:0;background:var(--paper);overflow:hidden;cursor:zoom-out;border-radius:inherit}
+.zoom-layer img{position:absolute;left:50%;top:50%;width:90%;max-width:none;transform-origin:center;transition:transform .08s}
+.info{flex:1 1 360px;min-width:0;padding:28px;display:flex;flex-direction:column;gap:18px}
+.info-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.info h2{font-family:var(--font-display);font-weight:600;font-size:32px}
+.info .from{font-size:14px;color:var(--paper-mute)}
+.price{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid var(--paper-line);background:var(--paper);cursor:pointer;flex:none;color:var(--paper-ink);font-size:22px;line-height:1}
+.opt{display:flex;flex-direction:column;gap:8px}
+.opt label,.opt .lbl{font-size:13px;color:var(--paper-mute);letter-spacing:.06em;text-transform:uppercase}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{min-height:44px;min-width:52px;padding:0 16px;border-radius:999px;border:1.5px solid var(--paper-line);background:var(--paper);color:var(--paper-ink);font:500 14px var(--font-body);cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.item{border:1.5px solid var(--paper-line);border-radius:14px;background:var(--paper-2);padding:10px 6px;font:500 13px var(--font-body);cursor:pointer;color:var(--paper-ink);display:flex;flex-direction:column;align-items:center;gap:4px}
+.item[aria-pressed="true"]{border-color:var(--paper-ink);background:var(--paper)}
+.item small{color:var(--paper-mute);font-size:12px;font-variant-numeric:tabular-nums}
+.care{font-size:13px;color:var(--paper-mute);border-top:1px solid var(--paper-line);padding-top:14px}
+.still{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#efeeeb;border-radius:inherit;overflow:hidden;cursor:zoom-in}
+.still img{width:100%;height:100%;object-fit:contain;display:block}
+.thumbs{position:absolute;left:14px;top:14px;display:flex;flex-direction:column;gap:8px;z-index:2}
+.thumbs button{width:54px;height:54px;border-radius:10px;border:2px solid transparent;padding:0;overflow:hidden;background:#efeeeb;cursor:pointer}
+.thumbs button[aria-pressed="true"]{border-color:var(--paper-ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.sheet-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-basis:100%;padding:12px 16px;border-bottom:1px solid var(--paper-line)}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px 0 10px;border-radius:999px;border:1px solid var(--paper-line);background:var(--paper);color:var(--paper-ink);font:600 14px var(--font-body);cursor:pointer}
+.back:hover{background:var(--paper-2)}
+.share-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--paper-line);background:var(--paper);color:var(--paper-ink);font:600 14px var(--font-body);cursor:pointer}
+.share-btn:hover{background:var(--paper-2)}
+.bar-right{display:flex;gap:8px;align-items:center}
+/* share sheet */
+.share{position:fixed;inset:0;z-index:90;background:rgba(5,7,18,.6);display:flex;align-items:flex-end;justify-content:center;padding:16px}
+@media (min-width:701px){.share{align-items:center}}
+.share-card{background:var(--paper);color:var(--paper-ink);border-radius:24px;width:min(520px,100%);padding:22px;display:flex;flex-direction:column;gap:16px;max-height:100%;overflow:auto}
+.share-card h3{font-family:var(--font-display);font-weight:600;font-size:22px}
+.share-prev{display:flex;gap:12px;align-items:center}
+.share-prev img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:#efeeeb}
+.share-prev small{color:var(--paper-mute)}
+.copy-row{display:flex;gap:8px}
+.copy-row input{flex:1;min-width:0;min-height:46px;border:1.5px solid var(--paper-line);border-radius:12px;padding:0 12px;font:14px var(--font-body);color:var(--paper-ink);background:var(--paper-2)}
+.copy-row button{min-height:46px;padding:0 18px;border-radius:12px;border:0;background:var(--paper-ink);color:var(--paper);font:600 14px var(--font-body);cursor:pointer}
+.share-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
+.share-grid a,.share-grid button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:14px;border:1px solid var(--paper-line);background:var(--paper);color:var(--paper-ink);font:500 12.5px var(--font-body);cursor:pointer;text-align:center}
+.share-grid a:hover,.share-grid button:hover{background:var(--paper-2);color:var(--paper-ink)}
+.share-grid i{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font:700 15px var(--font-body);font-style:normal}
+.share-note{font-size:13px;color:var(--paper-mute)}
+
+/* announcement, signup, promo, size guide */
+.announce{background:linear-gradient(90deg,#d4a75f,#f0d9a8,#d4a75f);color:#0b1230;text-align:center;font:600 13.5px var(--font-body);padding:8px 16px;letter-spacing:.02em}
+.announce a{color:#0b1230;text-decoration:underline;text-underline-offset:3px}
+.join{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;padding:28px;border-radius:24px;background:linear-gradient(135deg,rgba(212,167,95,.16),rgba(120,80,200,.16));border:1px solid rgba(240,217,168,.35)}
+.join-copy{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.join-copy p{color:var(--star)}
+.join form{flex:1 1 340px;min-width:0;display:flex;flex-wrap:wrap;gap:10px}
+.join input{flex:1 1 200px;min-width:0;min-height:50px;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);background:rgba(5,8,25,.55);color:#fff;padding:0 20px;font:15px var(--font-body)}
+.join input::placeholder{color:#8f9cc2}
+.join-msg{flex-basis:100%;font-size:15px;color:var(--gold-soft);min-height:1em}
+.join-msg b{font-size:20px;letter-spacing:.08em;background:#0b1230;border:1px dashed var(--gold);padding:4px 12px;border-radius:10px;margin:0 4px}
+.sizeguide{border:1px solid var(--paper-line);border-radius:14px;padding:10px 14px;font-size:14px}
+.sizeguide summary{cursor:pointer;font-weight:600;min-height:28px;display:flex;align-items:center}
+.sizeguide table{width:100%;border-collapse:collapse;margin-top:8px;font-variant-numeric:tabular-nums}
+.sizeguide th,.sizeguide td{padding:6px 4px;text-align:center;border-bottom:1px solid var(--paper-line)}
+.sizeguide th:first-child,.sizeguide td:first-child{text-align:left}
+.bundle-hint{font-size:14px;background:#fbf4e6;border:1px solid #efdcb6;color:#5b4515;border-radius:12px;padding:10px 12px}
+.listen-mini{display:flex;gap:12px;align-items:center;border:1px solid var(--paper-line);border-radius:14px;padding:8px;color:var(--paper-ink)}
+.listen-mini:hover{background:var(--paper-2);color:var(--paper-ink)}
+.listen-mini img{width:96px;aspect-ratio:16/9;object-fit:cover;border-radius:8px;flex:none}
+.listen-mini small{display:block;color:var(--paper-mute);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.listen-mini span{font-size:13.5px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ship-prog{font-size:14px;display:flex;flex-direction:column;gap:6px}
+.ship-prog .bar{height:8px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.ship-prog .bar i{display:block;height:100%;background:linear-gradient(90deg,#d4a75f,#2e9d62);border-radius:999px}
+.promo label{font-size:13px;color:var(--paper-mute);letter-spacing:.06em;text-transform:uppercase}
+.promo-row{display:flex;gap:8px;margin-top:6px}
+.promo-row input{flex:1;min-width:0;min-height:46px;border:1.5px solid var(--paper-line);border-radius:12px;padding:0 12px;font:15px var(--font-body);text-transform:uppercase;color:var(--paper-ink);background:var(--paper)}
+.promo-row button{min-height:46px;padding:0 18px;border-radius:12px;border:0;background:var(--paper-ink);color:var(--paper);font:600 14px var(--font-body);cursor:pointer}
+.promo-ok{color:#1d7a46;font-weight:600}
+.promo-ok button{border:0;background:none;color:var(--paper-mute);text-decoration:underline;cursor:pointer;font:13px var(--font-body);margin-left:6px}
+.sum-lines{display:flex;flex-direction:column;gap:4px;font-size:14.5px;font-variant-numeric:tabular-nums}
+.sum-lines div{display:flex;justify-content:space-between}
+.sum-lines .save{color:#1d7a46}
+
+/* cart drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:70;background:var(--paper);color:var(--paper-ink);box-shadow:-20px 0 60px rgba(0,0,0,.35);display:flex;flex-direction:column;padding:calc(24px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 24px;gap:16px}
+.drawer h2{font-family:var(--font-display);font-weight:600;font-size:28px}
+.lines{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.line{display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--paper-line);padding-bottom:12px}
+.line img{width:56px;height:56px;border-radius:10px;object-fit:cover;background:var(--paper-ink)}
+.line div{flex:1;min-width:0;font-size:14px}
+.line button{border:0;background:none;color:var(--paper-mute);cursor:pointer;font:500 13px var(--font-body);min-height:44px}
+.total{display:flex;justify-content:space-between;font-weight:600;font-size:18px;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--paper-mute)}
+
+/* footer */
+.foot{border-top:1px solid #1a2550;background:var(--night)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-block:36px;font-size:14px;color:var(--mist)}
+.foot nav{display:flex;flex-wrap:wrap;gap:20px}
+.foot .muted{color:#6f7da6}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:80;background:var(--paper-ink);color:var(--paper);padding:12px 20px;border-radius:999px;font-size:14px}
+
+@media (max-width:700px){
+  .viewer{border-radius:0;min-height:0;aspect-ratio:1;flex-basis:100%}
+  .modal{padding:0}
+  .sheet{border-radius:0;height:100%;max-height:none;align-content:flex-start}
+  .info{padding:18px 16px 32px}
+  .sheet-bar{position:sticky;top:0;z-index:3;background:var(--paper);padding:10px 12px;border-bottom:1px solid var(--paper-line);flex-basis:100%}
+  .thumbs{left:10px;top:10px}.thumbs button{width:44px;height:44px}
+  .hero-inner{padding-block:16px 4px}
+  .hero-inner p{font-size:17px}
+  .hero-cta .btn{flex:1 1 auto}
+  .sound-btn{left:auto;right:12px;bottom:12px;padding:8px 12px}
+  .spin-stage{height:auto}
+  .head-row{padding-block:10px;gap:8px}
+  .head-row .nav{order:3;flex-basis:100%;margin-left:0}
+  .cart-btn{min-height:40px;padding:0 14px}
+  .brand img{width:36px;height:36px}.brand span{font-size:16px}
+  .nav{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a,.nav button{padding:8px 13px;white-space:nowrap;flex:none}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card{padding:10px;border-radius:16px;gap:8px}.card b{font-size:14.5px}
+  .card .meta span{display:none}
+  .feat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .tilt{padding:10px;border-radius:16px}.tilt small{display:none}.tilt b{font-size:14.5px}
+  .tilt .flag{top:16px;left:16px}
+  .section-head .btn{display:none}
+  .shop-panel{border-radius:24px 24px 0 0;padding-top:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="announce">Free US shipping on orders $75+ · <b>Limited time: extra 10% off orders $100+</b> · Tee + mug bundle saves $5 · <a href="#join">Join the list for 10% off your first order</a></div>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#home"><img src="img/logo-badge.jpg" alt=""><span>NATIVE TUNES</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#home" data-nav="home">Home</a>
+      <button type="button" id="acctBtn" class="acct-btn">Log in</button>
+      <a href="#shop" data-nav="shop">Shop</a>
+      <a href="#listen" data-nav="listen">Listen</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <button type="button" class="cart-btn" id="cartBtn" aria-label="Open cart"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 01-2 1.8H9.2a2 2 0 01-2-1.8L6 7zm3 0V6a3 3 0 016 0v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Cart (<span id="cartCount">0</span>)</span></button>
+  </div>
+</header>
+
+<main>
+<!-- HOME (A) -->
+<section class="page home" id="page-home">
+  <div class="hero">
+    <img class="hero-img" src="img/banner.jpg" alt="Native Tunes · Sleep, meditation, relaxing sounds" width="2400" height="900">
+    <div class="wrap hero-inner">
+      <p>Wear the calm. Art from the music you fall asleep to.</p>
+      <div class="hero-cta">
+        <a class="btn btn-ghost" href="https://www.youtube.com/@NativeTunes/videos">Listen on YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="loop-card" aria-hidden="true"><video id="fluteLoop" src="img/flute-short.mp4" poster="img/flute-short.jpg" autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback></video></div>
+    <div class="section-head">
+      <div style="display:flex;flex-direction:column">
+        <span class="new-tag">✦ New Releases!</span>
+        <h2><a class="h2-link" href="#shop">Shop Featured Designs</a></h2>
+      </div>
+      <a class="btn btn-gold" href="#shop">Shop now →</a>
+    </div>
+    <div class="feat-grid" id="featGrid"></div>
+    <div class="see-all-row"><a class="btn btn-gold see-all" href="#shop">See all designs →</a></div>
+  </div>
+  <div class="wrap section" id="join">
+    <div class="join">
+      <div class="join-copy">
+        <span class="eyebrow">The Native Tunes list</span>
+        <h2>Get 10% off your first order</h2>
+        <p>New designs, new sleep music, and members-only drops. No spam, unsubscribe anytime.</p>
+      </div>
+      <form id="joinForm" novalidate>
+        <input type="email" id="joinEmail" placeholder="Your email address" autocomplete="email" aria-label="Email address" required>
+        <button type="submit" class="btn btn-gold">Get my code</button>
+        <p class="join-msg" id="joinMsg" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+  <div class="wrap section">
+    <div class="listen">
+      <a class="video-card" id="homeVideo" href="https://www.youtube.com/watch?v=rjovJk6Hsug" aria-label="Play Fall Asleep Fast: 432 Hz singing bowls and gentle rain">
+        <img src="https://i.ytimg.com/vi/rjovJk6Hsug/maxresdefault.jpg" alt="Fall Asleep Fast video thumbnail" onerror="this.onerror=null;this.src='img/video.jpg'">
+        <span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#0b1230"/></svg></span>
+      </a>
+      <div class="listen-copy">
+        <h2>Fall asleep with us</h2>
+        <p>Our newest video: 432 Hz singing bowls and gentle rain, eight hours on a black screen for deep sleep.</p>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@NativeTunes/videos" style="align-self:flex-start">Subscribe on YouTube</a>
+        <p class="help-line">Please help us by liking, subscribing, and commenting on our channel. Thank you!</p>
+      </div>
+    </div>
+  </div>
+  <div style="height:56px"></div>
+</section>
+
+<!-- SHOP (B + white catalog) -->
+<section class="page aurora nebula-bg" id="page-shop">
+  <div class="wrap sub-hero">
+    <div class="copy">
+      <span class="eyebrow">Shop · printed on demand</span>
+      <h1>Music to sleep by.<br>Art to wear.</h1>
+      <p class="lede">Every design comes from a Native Tunes video. Tap any design to see it in every color, zoom in on the art, and see every item it comes on.</p>
+    </div>
+    <button type="button" class="hero-shot" id="heroShot" aria-label="Let the Music Heal · Feathers tee, view details"><img src="img/m/g7-tee-black.webp" alt="Let the Music Heal · Feathers t-shirt in black" width="900" height="900"></button>
+  </div>
+  <div class="shop-panel">
+    <div class="wrap">
+      <div class="shop-tools">
+        <div class="chips" role="group" aria-label="Filter designs" id="chips"></div>
+        <div class="colorswitch" role="group" aria-label="Shirt color">
+          <span>Shirt color</span>
+          <button type="button" class="swatch" data-shirt="Black" aria-pressed="true" aria-label="Black shirts" title="Black"><i style="background:#18181b"></i></button>
+          <button type="button" class="swatch" data-shirt="White" aria-pressed="false" aria-label="White shirts" title="White"><i style="background:#f4f4f2;border:1px solid #d9d9d4"></i></button>
+          <button type="button" class="swatch" data-shirt="Heather Gray" aria-pressed="false" aria-label="Heather gray shirts" title="Heather Gray"><i style="background:#b0b0ad"></i></button>
+        </div>
+      </div>
+      <div class="grid" id="shopGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN (B) -->
+<section class="page aurora nebula-bg" id="page-listen">
+  <div class="wrap sub-hero"><div class="copy">
+    <span class="eyebrow">Sleep · Meditation · 432 Hz</span>
+    <h1>Listen tonight</h1>
+    <p class="lede">Native flute, rain, waterfalls, ocean waves and singing bowls, made to be calm enough to sleep through. New videos premiere on YouTube.</p>
+  </div></div>
+  <div class="wrap">
+    <h2 class="list-h">Playlists</h2>
+    <div class="pl-grid" id="plGrid"></div>
+    <div class="list-head"><h2 class="list-h">All videos <small id="vidCount"></small></h2>
+      <div class="list-links"><a class="btn btn-ghost" href="https://www.youtube.com/@NativeTunes/shorts">Watch our Shorts</a><a class="btn btn-ghost" href="https://www.youtube.com/@NativeTunes/playlists">All playlists on YouTube</a></div></div>
+  </div>
+  <div class="wrap vid-grid" id="vidGrid"></div>
+</section>
+
+<!-- ABOUT (B) -->
+<section class="page aurora nebula-bg" id="page-about">
+  <div class="wrap sub-hero"><div class="copy">
+    <span class="eyebrow">Our story</span>
+    <h1>Calm, made by hand and by ear</h1>
+  </div></div>
+  <div class="wrap"><div class="prose">
+    <p>Native Tunes makes long-form sleep and meditation music: Native-style flute over rain, rivers, waterfalls and ocean waves, with Tibetan-style singing bowls tuned to 432 Hz and 528 Hz. Every video pairs the sound with a slow, peaceful scene so it stays easy to drift off to.</p>
+    <p>This shop turns the art from those videos into things you can keep close: soft tees, hoodies, mugs and prints. Each piece is printed when you order it, so nothing sits in a warehouse and nothing goes to waste.</p>
+    <p>Our designs are inspired by the music and by nature. Native Tunes products are not made by Native American artists and are not presented as Native American made.</p>
+  </div></div>
+</section>
+
+<!-- LEGAL (B) -->
+<section class="page aurora nebula-bg" id="page-contact">
+  <div class="wrap sub-hero"><div class="copy"><span class="eyebrow">We're here to help</span><h1>Contact</h1>
+    <p class="lede">Questions about an order, sizing or our music? Email us and we'll reply within 1 to 2 business days.</p>
+    <p><a class="btn btn-gold" href="mailto:customerservice@nativetunesmedia.com">customerservice@nativetunesmedia.com</a></p>
+  </div></div>
+</section>
+
+<section class="page aurora" id="page-shipping">
+  <div class="wrap sub-hero"><div class="copy"><span class="eyebrow">Help</span><h1>Shipping &amp; returns</h1></div></div>
+  <div class="wrap"><div class="prose">
+    <h2>Made to order</h2>
+    <p>Every item is printed after you order it by our print partner. Production usually takes 2 to 5 business days, then shipping takes about 3 to 7 business days in the US. You'll get tracking by email once your order ships.</p>
+    <h2>Damaged or misprinted items</h2>
+    <p>If your item arrives damaged, defective or with a printing error, email us at <a href="mailto:customerservice@nativetunesmedia.com">customerservice@nativetunesmedia.com</a> with a photo within 30 days of delivery and we'll replace it or refund you at no cost.</p>
+    <h2>Returns</h2>
+    <p>Because each item is made just for you, we can't accept returns or exchanges for wrong size or change of mind. Please check the size chart before ordering.</p>
+    <h2>Care</h2>
+    <p>Wash inside out in cold water and tumble dry low, or hang dry. Don't iron directly on the print.</p>
+    <p class="updated">Last updated: October 26, 2026</p>
+  </div></div>
+</section>
+<section class="page aurora" id="page-terms">
+  <div class="wrap sub-hero"><div class="copy"><span class="eyebrow">Legal</span><h1>Terms of sale</h1></div></div>
+  <div class="wrap"><div class="prose">
+    <p>By placing an order on www.nativetunesmedia.com you agree to these terms.</p>
+    <ul>
+      <li>Prices are in US dollars. Shipping and any sales tax are shown at checkout before you pay.</li>
+      <li>Payments are processed securely by Stripe. We never see or store your full card number.</li>
+      <li>Orders are produced and shipped by our print-on-demand partner. Delivery times are estimates.</li>
+      <li>Colors on screen can look slightly different from the printed product.</li>
+      <li>All Native Tunes designs, artwork, logos and music are owned by Parraga International LLC DBA Native Tunes and Native Tunes Media, and may not be copied or resold.</li>
+      <li>We may cancel an order and refund you in full if an item can't be produced.</li>
+      <li>Returns, exchanges and damaged items are covered on our <a href="#shipping">Shipping &amp; returns</a> page.</li>
+    </ul>
+    <p class="updated">Last updated: October 26, 2026</p>
+  </div></div>
+</section>
+<section class="page aurora" id="page-privacy">
+  <div class="wrap sub-hero"><div class="copy"><span class="eyebrow">Legal</span><h1>Privacy</h1></div></div>
+  <div class="wrap"><div class="prose">
+    <p>We collect only what we need to fulfill your order: your name, email, shipping address and order details.</p>
+    <ul>
+      <li>Payment details go directly to Stripe and are handled under Stripe's privacy policy.</li>
+      <li>We use your email to send order updates. We'll only send news or offers if you sign up for them.</li>
+      <li>If you create an account, we store your name, email, phone and shipping address so checkout is faster next time. Your password is stored only as a secure one-way hash. You can update your details anytime from your account, or ask us to delete your account by emailing customerservice@nativetunesmedia.com.</li>
+      <li>If you choose to receive special offers, we may email you about new designs and discounts. Every offer email lets you unsubscribe.</li>
+      <li>If you are logged in, we save your cart to your account so it is there on any device. If you opted in to offer emails and leave items in your cart for a day, we may send you one reminder.</li>
+      <li>We don't sell your personal information.</li>
+      <li>All Native Tunes designs, artwork, logos and music are owned by Parraga International LLC DBA Native Tunes and Native Tunes Media, and may not be copied or resold.</li>
+      <li>Questions? Contact <a href="mailto:customerservice@nativetunesmedia.com">customerservice@nativetunesmedia.com</a>.</li>
+    </ul>
+    <p class="updated">Last updated: October 27, 2026</p>
+  </div></div>
+</section>
+<section class="page aurora" id="page-disclaimer">
+  <div class="wrap sub-hero"><div class="copy"><span class="eyebrow">Legal</span><h1>Disclaimer</h1></div></div>
+  <div class="wrap"><div class="prose">
+    <p>Native Tunes music and products are for relaxation and enjoyment. They are not medical treatment and are not a substitute for advice from a doctor or mental health professional. Statements about frequencies such as 432 Hz or 528 Hz describe the music and are not health claims.</p>
+    <p>Affirmation designs are for inspiration only and don't promise financial, health or other results.</p>
+    <p>Native Tunes designs are inspired by music and nature. Our products are not made by Native American artists and are not marketed as Native American made, in keeping with the Indian Arts and Crafts Act.</p>
+    <p class="updated">Last updated: October 26, 2026</p>
+  </div></div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <nav aria-label="Social">
+      <a href="https://www.youtube.com/@NativeTunes/videos">YouTube</a>
+      <a href="https://x.com/NativeTunes7">X</a>
+      <a href="https://www.instagram.com/native_tunes/">Instagram</a>
+      <a href="https://www.reddit.com/user/NativeTunes007/">Reddit</a>
+      <a href="https://www.tiktok.com/@native_tunes">TikTok</a>
+      <a href="https://www.twitch.tv/nativetunes">Twitch</a>
+    </nav>
+    <nav aria-label="Help">
+      <a href="#contact">Contact</a><a href="#shipping">Shipping &amp; returns</a><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#disclaimer">Disclaimer</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <div class="sheet-bar">
+      <button type="button" class="back" id="mBack"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Back to shop</button>
+      <div class="bar-right">
+        <button type="button" class="share-btn" id="mShare"><svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Share</button>
+        <button type="button" class="x" id="mClose" aria-label="Close">×</button>
+      </div>
+    </div>
+    <div class="viewer" id="viewer">
+      <div class="still" id="still" hidden><img id="stillImg" alt=""><div class="side-sw" id="sideSw" hidden onclick="event.stopPropagation()"><button type="button" data-s="both" aria-pressed="true">Front &amp; back</button><button type="button" data-s="back" aria-pressed="false">Back</button><button type="button" data-s="front" aria-pressed="false">Front</button></div></div>
+      <div class="thumbs" id="thumbs" hidden></div>
+      <span class="badge360" id="badge360">360° view</span>
+      <div class="viewer-tools">
+        <button type="button" class="tool" id="spinToggle">Pause spin</button>
+        <button type="button" class="tool" id="zoomArt">Zoom into the art</button>
+      </div>
+      <div class="zoom-layer" id="zoomLayer" hidden><img id="zoomImg" alt=""></div>
+    </div>
+    <div class="info">
+      <div class="info-top">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <h2 id="mTitle">Design</h2>
+          <span class="from" id="mFrom"></span>
+        </div>
+      </div>
+      <div class="price" id="mPrice">$29.99</div>
+      <div class="opt"><span class="lbl">Item</span><div class="items" id="mItems"></div></div>
+      <div class="opt"><span class="lbl">Color</span><div class="pills" id="mColors"></div></div>
+      <div class="opt" id="sizeOpt"><span class="lbl">Size</span><div class="pills" id="mSizes"></div></div>
+      <details class="sizeguide" id="sizeGuide"><summary>Size guide</summary><table id="sizeTable"></table><p class="note" style="margin-top:6px">Measured flat, in inches. Tip: lay a shirt you love flat and compare.</p></details>
+      <p class="bundle-hint" id="bundleHint">Bundle &amp; save: add any mug with a tee and save $5 on the mug. Free US shipping on orders $75+, plus a limited-time extra 10% off orders $100+.</p>
+      <button type="button" class="btn btn-gold" id="addCart">Add to cart</button>
+      <a class="listen-mini" id="mListen" target="_blank" rel="noopener"><img alt="" id="mListenImg"><div><small>From the channel · listen while you shop</small><span id="mListenTitle"></span></div></a>
+      <p class="care" id="mCare"></p>
+    </div>
+  </div>
+</div>
+
+<div class="acct-modal" id="acctModal" hidden role="dialog" aria-modal="true" aria-labelledby="acctTitle"><div class="acct-card"><button type="button" class="acct-x" id="acctClose" aria-label="Close">×</button><div id="acctBody"></div></div></div>
+<aside class="drawer" id="drawer" hidden aria-label="Cart">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h2>Your cart</h2><button type="button" class="x" id="dClose" aria-label="Close cart">×</button></div>
+  <div class="lines" id="lines"></div>
+  <div class="ship-prog" id="shipProg"></div>
+  <div class="promo" id="promoBox"><label for="promoInput">Promo code</label><div class="promo-row"><input id="promoInput" placeholder="WELCOME10" autocomplete="off" maxlength="40"><button type="button" id="promoApply">Apply</button></div><p class="note" id="promoMsg" style="margin-top:6px"></p></div>
+  <div class="sum-lines" id="sumLines"></div>
+  <div class="total"><span>Estimated total</span><span id="subtotal">$0.00</span></div>
+  <div class="acct-offer" id="acctOffer"></div>
+  <button type="button" class="btn btn-gold" id="checkout">Checkout</button>
+  <p class="note" id="checkoutNote">Secure checkout by Stripe. Sales tax, if any, is calculated at checkout based on your shipping address.</p>
+</aside>
+<button type="button" class="sound-btn" id="soundBtn" hidden aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path id="soundIcon" d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/></svg><span id="soundLbl">Play music</span></button>
+<audio id="bgm" src="audio/flute-waterfall-loop.mp3" loop preload="auto"></audio>
+<div class="toast" id="toast" hidden></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="share" id="share" hidden role="dialog" aria-modal="true" aria-labelledby="shTitle">
+  <div class="share-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h3 id="shTitle">Share this design</h3><button type="button" class="x" id="shClose" aria-label="Close share options">×</button></div>
+    <div class="share-prev"><img id="shImg" alt=""><div><b id="shName"></b><br><small>nativetunesmedia.com</small></div></div>
+    <div class="copy-row"><input id="shUrl" readonly aria-label="Link to this design"><button type="button" id="shCopy">Copy link</button></div>
+    <div class="share-grid" id="shGrid"></div>
+    <p class="share-note" id="shNote">Instagram and TikTok don't allow posting from a website, so those buttons copy the link and open the app. Paste it into your story, bio, post or DM.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+"use strict";
+const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- catalog ---------- */
+const ITEMS = {
+  tee:    {label:"Tee",        price:29.99, apparel:true},
+  hoodie: {label:"Hoodie",     price:49.99, apparel:true},
+  mug:    {label:"Mug",        price:16.99},
+  poster: {label:"Poster",     price:19.99},
+  tote:   {label:"Tote",       price:21.99},
+  sticker:{label:"Sticker",    price:4.99},
+  phone:  {label:"Phone case", price:22.99}
+};
+const ALL = ["tee","hoodie","mug"];
+const DESIGNS = [
+  {id:"d1",name:"Moonlit Campfire",img:"img/d1.png",cut:true,tag:"nature",from:"From our fire and flute sleep videos",colors:["Black","White","Heather Gray"]},
+  {id:"d2",name:"432 Hz Mountains",img:"img/d2.png",cut:true,tag:"nature",from:"From our 432 Hz healing frequency videos",colors:["Black","White","Heather Gray"]},
+  {id:"d3",name:"Keep Dreaming",img:"img/d3k.webp",cut:true,tag:"nature",from:"Earth glowing beside the Milky Way",colors:["Black","White","Heather Gray"]},
+  {id:"n1",name:"Purple Mountain Majesty",img:"img/n1.webp",cut:true,tag:"nature",from:"Snowy peaks glowing at a purple sunrise",colors:["Purple","Black","White","Heather Gray"]},
+  {id:"n2",name:"Gold of the Gods",img:"img/n2.webp",cut:true,tag:"faith",from:"Anubis and Horus guarding a mountain of gold",colors:["Black","White","Heather Gray"]},
+  {id:"d5",name:"Inhale Exhale",img:"img/d5n.webp",cut:true,tag:"nature",from:"Native-style flute in turquoise water",colors:["Black","White","Heather Gray"]},
+  {id:"d7",name:"Native Tunes Logo",img:"img/d7.png",cut:true,tag:"logo",from:"The Native Tunes mark",colors:["Navy","Black","White","Heather Gray"],items:["tee","hoodie","mug"]},
+  {id:"g1",name:"Written in the Stars",img:"img/g1.webp",cut:true,tag:"goddess",from:"Celestial goddess with headphones",colors:["Black","White","Heather Gray"]},
+  {id:"g2",name:"Strength in Stillness",img:"img/g2.webp",cut:true,tag:"goddess",from:"White and gold warrior goddess",colors:["Black","White","Heather Gray"]},
+  {id:"g3",name:"Trust Your Intuition",img:"img/g3.webp",cut:true,tag:"goddess",from:"Snow owl queen with headphones",colors:["Black","White","Heather Gray"]},
+  {id:"g4",name:"Howl at the Moon",img:"img/g4.webp",cut:true,tag:"nature",from:"Wolf, full moon and waterfalls",colors:["Black","White","Heather Gray"]},
+  {id:"g5",name:"Cosmic Healing",img:"img/g5.webp",cut:true,tag:"goddess",from:"The cosmic alchemist",colors:["Black","White","Heather Gray"]},
+  {id:"g6",name:"Queen Energy",img:"img/g6.webp",cut:true,tag:"goddess",from:"Neon pharaoh queen",colors:["Black","White","Heather Gray"]},
+  {id:"g7",name:"Let the Music Heal · Feathers",img:"img/g7.webp",cut:true,tag:"goddess",from:"Feather bonnet, headphones and wolf",colors:["Black","White","Heather Gray"]},
+  {id:"g8",name:"Tune In",img:"img/g8.webp",cut:true,tag:"goddess",from:"Feather bonnet portrait with headphones",colors:["Black","White","Heather Gray"]},
+  {id:"r1",name:"Grateful",img:"img/r1.webp",cut:true,tag:"faith",from:"Neon angel wings",colors:["Black","White","Heather Gray"]},
+  {id:"r2",name:"Manifest",img:"img/r2.webp",cut:true,tag:"faith",from:"Fire and water spirit",colors:["Black","White","Heather Gray"]},
+  {id:"r3",name:"Cosmic Energy",img:"img/r3n.webp",cut:true,tag:"faith",from:"Giza pyramids charging under Orion's Belt",colors:["Black","White","Heather Gray"]},
+  {id:"p1",name:"Spider Frenchie",img:"img/p1.webp",cut:true,tag:"pets",from:"Our French bulldog in his red hoodie",colors:["Black","White","Heather Gray"]},
+  {id:"p2",name:"Raccoon DJ",img:"img/p2.webp",cut:true,tag:"pets",from:"A raccoon on the turntables",colors:["Black","White","Heather Gray"]},
+  {id:"p4",name:"Bitcoin Raccoon",img:"img/p4.webp",cut:true,tag:"faith",from:"Abundance: a raccoon in a sea of gold coins",colors:["Black","White","Heather Gray"]},
+  {id:"p3",name:"Machete Penguin",img:"img/p3.webp",cut:true,tag:"pets",from:"Penguin in sunglasses and gold headphones",colors:["Black","White","Heather Gray"]},
+  {id:"o1",name:"Bat Escape Texas",img:"img/o1.webp",cut:true,tag:"texas",from:"Hand-drawn Native Tunes original",colors:["Black","White","Heather Gray","Kelly Green"]},
+  {id:"o2",name:"America Flag",img:"img/o2.webp",cut:true,tag:"texas",from:"Hand-drawn Native Tunes original",colors:["Black","White","Heather Gray"]},
+  {id:"o4",name:"Austin Native Soccer",img:"img/o4.webp",cut:true,tag:"texas",from:"Hand-drawn Native Tunes original",colors:["White","Heather Gray"]},
+  {id:"o5",name:"Austin Skyline",img:"img/o5.webp",cut:true,tag:"texas",from:"Hand-drawn Native Tunes original",colors:["White","Heather Gray"]},
+];
+const COLOR_HEX = {Black:"#18181b",White:"#f4f4f1",Navy:"#1b2342","Heather Gray":"#b0b0ad","Kelly Green":"#0a7e46",Purple:"#3a2462",Natural:"#ece2cc"};
+const FILTERS = [["goddess","Goddesses & queens"],["nature","Sounds & nature"],["faith","Faith & abundance"],["pets","Animals"],["texas","Texas & USA"],["logo","Logo"],["all","All designs"]];
+const money = n => "$" + n.toFixed(2);
+const $ = s => document.querySelector(s);
+
+/* ---------- toast ---------- */
+let toastT;
+function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2400);}
+
+/* ---------- router (pages + shareable product links like #shop/p1) ---------- */
+const PAGES = ["home","shop","listen","about","contact","shipping","terms","privacy","disclaimer"];
+let lastPage = null;
+function route(){
+  const raw = (location.hash||"").replace("#","") || location.pathname.replace(/^\/+|\/+$/g,"");
+  const parts = raw.split("/");
+  const h = parts[0];
+  const p = PAGES.includes(h) ? h : "home";
+  const pid = (p==="shop" && parts[1] && DESIGNS.some(d=>d.id===parts[1])) ? parts[1] : null;
+  document.querySelectorAll(".page").forEach(s=>s.classList.toggle("on", s.id==="page-"+p));
+  document.querySelectorAll("[data-nav]").forEach(a=>{ if(a.dataset.nav===p) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if (h==="join"){ setTimeout(()=>{ const j=document.getElementById("join"); if(j) j.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"}); },60); }
+  else if (p!==lastPage && !pid) window.scrollTo(0,0);
+  lastPage = p;
+  if (p==="home") sky.start(); else sky.stop();
+  if (window.bgm) bgm.page(["home","shop","listen","about","contact"].includes(p));
+  if (pid){ if($("#modal").hidden || !cur || cur.id!==pid) openModal(pid, true, {item:parts[2], color:parts[3]}); }
+  else if (!$("#modal").hidden){ modalPushed=false; hideModal(); }
+}
+
+/* soft background music on home, shop, listen, about and contact (flute & waterfall sample from our most-watched video) */
+window.bgm = (function(){
+  const a=$("#bgm"), btn=$("#soundBtn"), lbl=$("#soundLbl"), VOL=0.12;
+  let muted=false, onHome=true, started=false;
+  try{ muted = localStorage.getItem("nt_sound")==="off"; }catch(e){}
+  a.volume=0;
+  function fade(to,ms){ const from=a.volume, t0=performance.now(); (function step(){ const k=Math.min(1,(performance.now()-t0)/ms); a.volume=from+(to-from)*k; if(k<1) requestAnimationFrame(step); else if(to===0) a.pause(); })(); }
+  function ui(){ btn.hidden=!onHome; lbl.textContent = (muted||!started) ? "Play music" : "Mute music"; btn.setAttribute("aria-pressed", String(!muted && started)); }
+  function play(){ if(muted||!onHome) return; a.play().then(()=>{ started=true; fade(VOL,2500); ui(); }).catch(()=>{ ui(); }); }
+  function firstTouch(){ ["pointerdown","keydown","touchstart"].forEach(e=>removeEventListener(e,firstTouch,true)); if(!started) play(); }
+  ["pointerdown","keydown","touchstart"].forEach(e=>addEventListener(e,firstTouch,true));
+  btn.addEventListener("click",e=>{ e.stopPropagation(); if(muted||!started){ muted=false; try{localStorage.setItem("nt_sound","on");}catch(_){} play(); } else { muted=true; try{localStorage.setItem("nt_sound","off");}catch(_){} fade(0,600); } ui(); });
+  document.addEventListener("visibilitychange",()=>{ if(document.hidden) a.pause(); else if(started && !muted && onHome) a.play().catch(()=>{}); });
+  setTimeout(play,400);
+  return { page(home){ onHome=home; if(!home){ if(!a.paused) fade(0,500); } else if(started && !muted){ a.play().then(()=>fade(VOL,1500)).catch(()=>{}); } ui(); } };
+})();
+window.addEventListener("hashchange", route);
+
+/* ---------- shared product helpers ---------- */
+DESIGNS.sort((a,b)=>a.name.localeCompare(b.name, "en", {numeric:true}));
+const slug = c => c.toLowerCase().replace(/ /g,"-");
+const isApparel = it => it==="tee" || it==="hoodie";
+const itemColors = (d,item) => item==="hoodie" ? d.colors.filter(c=>c!=="Kelly Green") : d.colors;
+const MV = "1029b";
+const mock = (d,item,color) => "img/m/"+d.id+"-"+item+"-"+slug(color)+".webp?v="+MV;
+/* designs whose ink changes with the shirt color (white web on black, black web on light, etc.) */
+function artFor(d, color, item){
+  const dark = color==="Black" || color==="Navy" || color==="Purple" || item==="poster" || item==="phone";
+  if (d.id==="d3"||d.id==="d5"||d.id==="r3"||d.id==="n1"||d.id==="n2") return (dark || color==="Kelly Green") ? d.img : d.img.replace(".webp","_l.webp");
+  if (d.id==="p1") return dark ? "img/p1.webp" : "img/p1_b.webp";
+  if (d.id==="d4") return dark ? "img/d4.png" : "img/d4_l.png";
+  if (d.id==="o1") return color==="Black" ? "img/o1_d.webp" : color==="Kelly Green" ? "img/o1_k.webp" : "img/o1.webp";
+  return d.img;
+}
+function cardColor(d){ if(d.id==="o1"&&shirt==="Black") return "Kelly Green"; if(d.id==="n1"&&shirt==="Black") return "Purple"; return d.colors.includes(shirt) ? shirt : d.colors[0]; }
+
+/* ---------- home: New Releases ---------- */
+const featGrid = $("#featGrid");
+["d5","g7","d3","r1","r3","p2","p3","n1","g4","n2","p1"].forEach(id=>{
+  const d = DESIGNS.find(x=>x.id===id), col = d.colors[0];
+  const b = document.createElement("button"); b.type="button"; b.className="tilt";
+  b.innerHTML = '<span class="flag">New</span><span class="art"><img loading="lazy" width="900" height="900" alt="" src="'+mock(d,"tee",col)+'"></span><b></b>';
+  b.querySelector("b").textContent = d.name; b.querySelector("img").alt = d.name+" t-shirt in "+col.toLowerCase();
+  b.addEventListener("click",()=>openModal(d.id));
+  if(!reduce){
+    b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;b.style.transform="rotateY("+(x*12)+"deg) rotateX("+(-y*9)+"deg)";});
+    b.addEventListener("pointerleave",()=>b.style.transform="");
+  }
+  featGrid.appendChild(b);
+});
+
+/* ---------- listen page ---------- */
+const VIDS = [["rjovJk6Hsug", "Fall Asleep Fast 🌙 432 Hz Singing Bowls & Gentle Rain · Deep Sleep Music · 8 Hours Black Screen", "8 hr 0 min"], ["LQC4YoMOFgI", "Thank You God 🙏 The Best Is Yet To Come | Meditation Affirmations Black Screen 1111", "17 min"], ["hVEMMtqnd6w", "Money & Abundance Affirmations ✨ Unlock the Universe | Wave Sounds Meditation (Black Screen 888)", "18 min"], ["YA5es8mrvaQ", "Make It Rain 💸 Prosperity & Money Affirmations | Calming Rain Sounds (Black Screen 888)", "18 min"], ["N-iNc-HgtRE", "Thank You God 🙏 Morning Gratitude Affirmations | Ocean Waves Meditation (1111)", "18 min"], ["GHBE-wYqalI", "I Am Wealthy, Abundant & Healthy ✨ Positive Affirmations for Meditation | Black Screen (888)", "17 min"], ["AQqC4Dpicis", "Health Is Wealth 🌿 Powerful Health Affirmations for Meditation | Waterfall Sounds (555)", "17 min"], ["THTsVSDhexE", "Manifest Success & Abundance ✨ Powerful Affirmations for Meditation | Waterfall Sounds (999)", "17 min"], ["a5yyCjelC1o", "Lottery Abundance Manifestation ✨ Powerful Affirmations with Ocean Waves | Sleep & Meditation (777)", "17 min"], ["kWhpzcWpQM0", "Unlock Money Abundance 💰 432Hz Affirmations with Ocean Waves | Sleep & Meditation (Black Screen) 777", "17 min"], ["W4y20nSe77w", "Money Abundance Affirmations 💰 432Hz Waterfall Sounds | Deep Sleep & Meditation (Black Screen) 444", "20 min"], ["H_JIOlExdLc", "Fall Asleep Fast 🌙 Deep Sleep Meditation 432Hz ✨ Relaxing Indian Flute Waterfall Black Screen Meditation", "9 hr 4 min"], ["bDNseOPRsGg", "Fall Asleep Fast 🌙 Deep Sleep 528Hz Healing Music 🌿 Native Flute & Waterfall Sounds | Black Screen", "8 hr 15 min"], ["_xkVhfNilaI", "Deep Sleep & Pineal Healing 🌙 | 963 Hz Solfeggio Frequency | Binaural Beats + Waterfall Black Screen", "10 hr 40 min"], ["gfCPkLQdlvo", "432 Hz Healing Sleep Music • Chakra Activation | Black Screen", "9 hr 40 min"], ["3eJIPAVQwN8", "Deep Sleep Meditation • 963 Hz Solfeggio Healing Frequency (Black Screen)", "5 hr 33 min"], ["T3mZhix_308", "432 Hz Binaural Beats for Deep Sleep • Healing Water Sounds (Black Screen)", "7 hr 17 min"], ["kIO3OXpDhM4", "Fall Asleep Fast 🌙 Deep Sleep Meditation • 432 Hz Chakra Activation (Black Screen)", "3 hr 0 min"], ["kMPn6pz-Os0", "Fall Asleep Fast Deep Sleep Music Sound Bath • 528 Hz Healing Frequency | Singing Bowls Black Screen", "7 hr 30 min"], ["CHvJvQC1JUw", "Fall Asleep Fast 🌙 Deep Sleep Music • 528 Hz Native Flute & Fire Sounds (Black Screen)", "5 hr 3 min"], ["Z6p7B7VKaWk", "Deep Sleep Music 🌙 • 528 Hz Chakra Cleanse & Healing (Black Screen)", "21 min"], ["fM3JohjK7OQ", "Fall Asleep Fast 🌙 Deep Sleep Nature Sounds • 432 Hz Tropical Jungle & Flowing River Black Screen", "3 hr 22 min"], ["Ko2CNT0wx9s", "Fall Asleep Fast 🌙 Deep Sleep Meditation Fireplace Sounds • Relaxing Firelog Ambience (Black Screen)", "3 hr 0 min"], ["VGvNj6tGXog", "Spiritual Healing Meditation • 432 Hz Frequency Tunes (Black Screen)", "3 hr 12 min"], ["AoZg6VEqOLA", "Fall Asleep Fast 🌙 Deep Sleep Music • 432 Hz 🌧 Rain & Thunder Sounds (Black Screen)", "4 hr 0 min"], ["goKTCJ8fKIw", "Fall Asleep Fast 🌙 Deep Sleep Music • 432 Hz River Sounds for Healing (Black Screen)", "6 hr 5 min"], ["LUbzQzFMyR0", "Deep Healing Meditation 🌙 • 432 Hz & 528 Hz Deep Relaxation (Black Screen)", "3 hr 37 min"], ["4vbXrmfOyiI", "Fall Asleep Fast 🌙 Deep Sleep Music • 528 Hz 🌊 Ocean Waves for Healing (Black Screen)", "4 hr 20 min"], ["8u3sv4pJK1k", "Zen Meditation 🌙 • 432 Hz Tibetan Singing Bowls (Black Screen)", "4 hr 27 min"], ["gI-uTdCoTeM", "Fall Asleep Fast 🌙 Deep Relaxation Music • 432 Hz Waterfall, Indian Flute & Tibetan Bowls Black Screen", "3 hr 12 min"], ["XB0XtTYh17w", "Deep Sleep Music • 528 Hz Healing Waterfall Sounds (Black Screen)", "6 min"], ["ikl-C_q5wUg", "Native Tunes 432 Hz Waterfall Tibetan Bowl Ultimate Relaxation Nature Sounds", "10 min"]];
+const PLAYLISTS = [["PLYss8EAwPsIc", "Fall Asleep Fast 🌙 Deep Sleep Music", "11 videos · black screen", "rjovJk6Hsug"], ["PLBNE2INTOdpI", "Sleep Frequencies 🌙 432, 528 & 963 Hz", "17 videos · black screen", "_xkVhfNilaI", 1.55], ["PLGozMvrKsVG4", "Abundance & Gratitude Affirmations ✨", "10 videos · meditation", "M1wiFvbFQnQ"], ["PLFnzyobXdksq4dnuQ_JFI2TFOtSguVhPg", "Deep Sleep & Healing Frequencies 🌙", "28 videos · black screen", "LQC4YoMOFgI", 1.6]];
+const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+$("#vidCount").textContent = "("+VIDS.length+")";
+$("#vidGrid").innerHTML = VIDS.map(v=>'<a class="vid glass" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v='+v[0]+'"><span class="thumb"><img src="https://i.ytimg.com/vi/'+v[0]+'/hqdefault.jpg" alt="" loading="lazy"><em>'+v[2]+'</em></span><span>'+esc(v[1])+'</span></a>').join("");
+$("#plGrid").innerHTML = PLAYLISTS.map(p=>'<a class="pl glass" target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list='+p[0]+'" aria-label="Open the '+esc(p[1])+' playlist on YouTube"><span class="pl-thumb'+(p[4]?' pillar':'')+'"'+(p[4]?' style="--z:'+p[4]+'"':'')+'>'+(p[4]?'<img class="bg" loading="lazy" alt="" src="https://i.ytimg.com/vi/'+p[3]+'/mqdefault.jpg">':'')+'<img class="fg" loading="lazy" alt="" src="https://i.ytimg.com/vi/'+p[3]+'/maxresdefault.jpg" onload="if(this.naturalWidth<200&&this.src.indexOf(\'maxres\')>0)this.src=this.src.replace(\'maxresdefault\',\'mqdefault\')" onerror="this.onerror=null;this.src=this.src.replace(\'maxresdefault\',\'mqdefault\')"><span class="pl-count"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h13v2H3zm0 5h13v2H3zm0 5h9v2H3zm14-1v-5l5 3.5z" fill="currentColor"/></svg>'+p[2].split(" · ")[0]+'</span><span class="pl-play">▶ Play all</span></span><b>'+esc(p[1])+'</b><small>'+p[2]+' · opens on YouTube</small></a>').join("");
+
+/* ---------- shop grid (A to Z) ---------- */
+let filter = "all", shirt = "Black";
+const chips = $("#chips");
+FILTERS.forEach(([k,l])=>{const c=document.createElement("button");c.type="button";c.className="chip";c.textContent=l;c.setAttribute("aria-pressed",k===filter);c.onclick=()=>{filter=k;chips.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===c));renderGrid();};chips.appendChild(c);});
+document.querySelectorAll("[data-shirt]").forEach(s=>s.addEventListener("click",()=>{shirt=s.dataset.shirt;document.querySelectorAll("[data-shirt]").forEach(x=>x.setAttribute("aria-pressed",x===s));renderGrid();}));
+function renderGrid(){
+  const g = $("#shopGrid"); g.innerHTML = "";
+  DESIGNS.filter(d=>filter==="all"||d.tag===filter).forEach(d=>{
+    const col = cardColor(d);
+    const b = document.createElement("button"); b.type="button"; b.className="card";
+    b.innerHTML = '<span class="tee"><img loading="lazy" width="900" height="900" alt="" src="'+mock(d,"tee",col)+'"></span><b></b><span class="dots">'+d.colors.map(c=>'<i title="'+c+'" style="background:'+COLOR_HEX[c]+'"></i>').join("")+'</span><span class="meta"><span>'+col+' tee · hoodie, mug &amp; more</span></span>';
+    b.querySelector("b").textContent = d.name; b.querySelector("img").alt = d.name+" t-shirt in "+col.toLowerCase();
+    b.addEventListener("click",()=>openModal(d.id));
+    g.appendChild(b);
+  });
+}
+
+/* ---------- 3D product builder ---------- */
+const texCache = {};
+function loadTex(src){ if(!texCache[src]){ const t=new THREE.TextureLoader().load(src, ()=>{}); t.encoding=THREE.sRGBEncoding; t.anisotropy=8; texCache[src]=t; } return texCache[src]; }
+function teeShape(hoodie){
+  const s = new THREE.Shape();
+  const P = hoodie
+    ? [[90,12],[50,26],[-4,150],[30,166],[66,96],[66,330],[234,330],[234,96],[270,166],[304,150],[250,26],[210,12]]
+    : [[90,12],[58,22],[8,62],[40,112],[70,96],[70,312],[230,312],[230,96],[260,112],[292,62],[242,22],[210,12]];
+  const f = p => [(p[0]-150)/100, -(p[1]-170)/100];
+  s.moveTo(...f(P[0])); P.slice(1).forEach(p=>s.lineTo(...f(p)));
+  s.quadraticCurveTo(...f([150,52]), ...f([90,12]));
+  return s;
+}
+function fabric(hex){ return new THREE.MeshStandardMaterial({color:hex, roughness:.92, metalness:0}); }
+function artPlane(src, w, h, cut){ const m=new THREE.MeshStandardMaterial({map:loadTex(src), transparent:!!cut, roughness:.8}); return new THREE.Mesh(new THREE.PlaneGeometry(w,h), m); }
+function roundRectShape(w,h,r){ const s=new THREE.Shape(),x=-w/2,y=-h/2; s.moveTo(x+r,y); s.lineTo(x+w-r,y); s.quadraticCurveTo(x+w,y,x+w,y+r); s.lineTo(x+w,y+h-r); s.quadraticCurveTo(x+w,y+h,x+w-r,y+h); s.lineTo(x+r,y+h); s.quadraticCurveTo(x,y+h,x,y+h-r); s.lineTo(x,y+r); s.quadraticCurveTo(x,y,x+r,y); return s; }
+function mugTexture(src, baseHex){
+  const c = document.createElement("canvas"); c.width=2048; c.height=744; const g=c.getContext("2d");
+  g.fillStyle=baseHex; g.fillRect(0,0,c.width,c.height);
+  const tex = new THREE.CanvasTexture(c); tex.encoding=THREE.sRGBEncoding;
+  const im = new Image(); im.onload=()=>{ const s=600; g.drawImage(im,(c.width-s)/2,(c.height-s)/2,s,s); tex.needsUpdate=true; }; im.src=src;
+  return tex;
+}
+function buildProduct(type, d, colorName){
+  const hex = COLOR_HEX[colorName] || "#18181d";
+  const grp = new THREE.Group();
+  if (type==="tee" || type==="hoodie"){
+    const hood = type==="hoodie";
+    /* flat garment: thin like a real shirt laid out, printed on the front */
+    const geo = new THREE.ExtrudeGeometry(teeShape(hood), {depth:.03, bevelEnabled:true, bevelThickness:.012, bevelSize:.012, bevelSegments:2, curveSegments:24});
+    geo.center(); grp.add(new THREE.Mesh(geo, fabric(hex)));
+    const art = artPlane(d.img, .92, .92, d.cut); art.position.set(0,.3,.031); grp.add(art);
+    if (hood){
+      const h = new THREE.Mesh(new THREE.TorusGeometry(.42,.11,16,40,Math.PI), fabric(hex)); h.scale.z=.22; h.position.set(0,1.32,-.01); grp.add(h);
+      const p = new THREE.Mesh(new THREE.BoxGeometry(1.1,.42,.008), fabric(hex)); p.position.set(0,-.95,.031); grp.add(p);
+      art.position.y=.22;
+    }
+  } else if (type==="mug"){
+    const base = colorName==="White"||colorName==="Natural" ? "#f7f7f5" : hex;
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(.72,.72,1.6,96,1,true,Math.PI,Math.PI*2), new THREE.MeshStandardMaterial({map:mugTexture(d.img, base), roughness:.25, metalness:.05, side:THREE.FrontSide}));
+    grp.add(body);
+    const inner = new THREE.Mesh(new THREE.CylinderGeometry(.68,.68,1.58,64,1,true), new THREE.MeshStandardMaterial({color:base, roughness:.3, side:THREE.BackSide})); grp.add(inner);
+    const bottom = new THREE.Mesh(new THREE.CircleGeometry(.72,64), new THREE.MeshStandardMaterial({color:base, roughness:.3})); bottom.rotation.x=-Math.PI/2; bottom.position.y=-.78; grp.add(bottom);
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(.7,.025,12,96), new THREE.MeshStandardMaterial({color:base, roughness:.25})); rim.rotation.x=Math.PI/2; rim.position.y=.8; grp.add(rim);
+    const handle = new THREE.Mesh(new THREE.TorusGeometry(.36,.085,16,48,Math.PI), new THREE.MeshStandardMaterial({color:base, roughness:.25})); handle.rotation.z=-Math.PI/2; handle.position.x=.72; grp.add(handle);
+  } else if (type==="poster"){
+    const frame = new THREE.Mesh(new THREE.BoxGeometry(1.86,2.46,.08), new THREE.MeshStandardMaterial({color:"#1b1b1f", roughness:.6})); grp.add(frame);
+    const paper = new THREE.Mesh(new THREE.PlaneGeometry(1.7,2.3), new THREE.MeshStandardMaterial({color:d.cut?"#0b1230":"#111", roughness:.9})); paper.position.z=.045; grp.add(paper);
+    const art = artPlane(d.img, 1.5, 1.5, d.cut); art.position.set(0,.18,.05); grp.add(art);
+  } else if (type==="tote"){
+    const bag = new THREE.Mesh(new THREE.BoxGeometry(1.7,1.8,.14), fabric(colorName==="Navy"?COLOR_HEX.Navy:COLOR_HEX.Natural)); grp.add(bag);
+    [-.42,.42].forEach(x=>{ const h=new THREE.Mesh(new THREE.TorusGeometry(.32,.045,12,40,Math.PI), fabric(colorName==="Navy"?COLOR_HEX.Navy:"#d9cdb0")); h.position.set(x,.9,0); grp.add(h); });
+    const art = artPlane(d.img, 1.15, 1.15, d.cut); art.position.set(0,-.05,.075); grp.add(art);
+  } else if (type==="sticker"){
+    const disk = new THREE.Mesh(new THREE.CylinderGeometry(1,1,.03,96), new THREE.MeshStandardMaterial({color:"#ffffff", roughness:.4})); disk.rotation.x=Math.PI/2; grp.add(disk);
+    const art = artPlane(d.img, 1.8, 1.8, d.cut); art.position.z=.02; grp.add(art);
+  } else if (type==="phone"){
+    const geo = new THREE.ExtrudeGeometry(roundRectShape(1.15,2.35,.2), {depth:.12, bevelEnabled:true, bevelThickness:.03, bevelSize:.03, bevelSegments:3}); geo.center();
+    grp.add(new THREE.Mesh(geo, new THREE.MeshStandardMaterial({color:"#0e0e12", roughness:.35})));
+    const art = artPlane(d.img, 1.1, 1.1, d.cut); art.position.set(0,-.15,-.1); art.rotation.y=Math.PI; grp.add(art);
+    const cam = new THREE.Mesh(new THREE.BoxGeometry(.42,.42,.06), new THREE.MeshStandardMaterial({color:"#222", roughness:.3})); cam.position.set(-.3,.85,-.12); grp.add(cam);
+    grp.rotation.y = Math.PI;
+  }
+  return grp;
+}
+
+/* ---------- reusable viewer ---------- */
+function makeViewer(host, opts){
+  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.outputEncoding=THREE.sRGBEncoding;
+  renderer.domElement.setAttribute("aria-label", "3D product view, drag to rotate");
+  host.prepend(renderer.domElement);
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(35,1,.1,100); cam.position.set(0,.2,6.2);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8f9e, .9));
+  const key = new THREE.DirectionalLight(0xffffff,.9); key.position.set(3,4,5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xbfd4ff,.5); rim.position.set(-4,2,-4); scene.add(rim);
+  const ctl = new THREE.OrbitControls(cam, renderer.domElement);
+  ctl.enableDamping=true; ctl.enablePan=false; ctl.enableZoom=!!opts.zoom; ctl.minDistance=2.4; ctl.maxDistance=9;
+  ctl.autoRotate=!reduce; ctl.autoRotateSpeed=opts.speed||2.2;
+  ctl.addEventListener("start",()=>{ if(opts.stopOnDrag){ ctl.autoRotate=false; opts.onStop&&opts.onStop(); } });
+  let obj=null, running=false, raf=0;
+  function size(){ const r=host.getBoundingClientRect(); if(!r.width) return; renderer.setSize(r.width,r.height,false); cam.aspect=r.width/r.height; cam.updateProjectionMatrix(); }
+  function loop(){ if(!running) return; ctl.update(); renderer.render(scene,cam); raf=requestAnimationFrame(loop); }
+  window.addEventListener("resize", size);
+  return {
+    set(o){ if(obj) scene.remove(obj); obj=o; scene.add(o); },
+    start(){ if(running) return; running=true; size(); loop(); },
+    stop(){ running=false; cancelAnimationFrame(raf); },
+    ctl, size
+  };
+}
+
+/* home video: plays in place (no autoplay with sound until tapped) */
+$("#homeVideo").addEventListener("click",e=>{
+  e.preventDefault(); const card=e.currentTarget; if(card.querySelector("iframe")) return;
+  try{ const a=document.getElementById("bgm"); if(a) a.pause(); }catch(_){}
+  const f=document.createElement("iframe");
+  f.src="https://www.youtube-nocookie.com/embed/rjovJk6Hsug?autoplay=1&rel=0&playsinline=1";
+  f.title="Fall Asleep Fast: 432 Hz singing bowls and gentle rain"; f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen=true;
+  card.querySelectorAll("img,.play").forEach(n=>n.remove()); card.appendChild(f);
+});
+/* shop hero: still photo of the Let the Music Heal · Feathers tee */
+$("#heroShot").addEventListener("click",()=>openModal("g7"));
+
+/* ---------- home sky: twinkling stars, shooting stars and a comet (2D canvas, round soft stars) ---------- */
+const sky = (function(){
+  const c = $("#sky"), g = c.getContext("2d");
+  let W=0, H=0, dpr=1, stars=[], shots=[], comet=null, running=false, raf=0, last=0, t=0, nextShot=2.5, nextComet=5;
+  const TINTS = ["255,247,228","226,236,255","255,232,200","240,232,255","255,255,255"];
+  function seed(){
+    const n = Math.min(700, Math.round(W*H/2300)); stars = [];
+    for(let i=0;i<n;i++){
+      const big = Math.random()<.07;
+      stars.push({x:Math.random()*W, y:Math.random()*H, r: big ? 1.1+Math.random()*1.2 : .3+Math.random()*.75,
+        ph:Math.random()*6.283, sp:.5+Math.random()*1.9, tint:TINTS[(Math.random()*TINTS.length)|0], big});
+    }
+  }
+  function size(){ dpr=Math.min(window.devicePixelRatio||1,2); W=innerWidth; H=innerHeight; c.width=Math.round(W*dpr); c.height=Math.round(H*dpr); g.setTransform(dpr,0,0,dpr,0,0); seed(); }
+  function drawStars(){
+    for(const s of stars){
+      const tw = .5+.5*Math.sin(t*s.sp+s.ph), a = .25+.75*tw*tw;
+      if(s.big){
+        const R = s.r*5.5, gr = g.createRadialGradient(s.x,s.y,0,s.x,s.y,R);
+        gr.addColorStop(0,"rgba("+s.tint+","+(.9*a)+")"); gr.addColorStop(.25,"rgba("+s.tint+","+(.28*a)+")"); gr.addColorStop(1,"rgba("+s.tint+",0)");
+        g.fillStyle=gr; g.beginPath(); g.arc(s.x,s.y,R,0,6.283); g.fill();
+        const L = s.r*(5+5*tw); g.strokeStyle="rgba("+s.tint+","+(.45*a)+")"; g.lineWidth=.6;
+        g.beginPath(); g.moveTo(s.x-L,s.y); g.lineTo(s.x+L,s.y); g.moveTo(s.x,s.y-L); g.lineTo(s.x,s.y+L); g.stroke();
+      }
+      g.fillStyle="rgba("+s.tint+","+a+")"; g.beginPath(); g.arc(s.x,s.y,s.r,0,6.283); g.fill();
+    }
+  }
+  function spawnShot(){
+    const ang = (18+Math.random()*24)*Math.PI/180 * (Math.random()<.5?1:-1) + (Math.random()<.5?0:Math.PI);
+    const dir = Math.cos(ang)>0 ? 1 : -1, sp = 650+Math.random()*450;
+    shots.push({x: dir>0 ? Math.random()*W*.6 : W*.4+Math.random()*W*.6, y: Math.random()*H*.45, vx: dir*Math.abs(Math.cos(ang))*sp, vy: Math.abs(Math.sin(ang))*sp, life:0, max:.7+Math.random()*.6, len:110+Math.random()*120});
+  }
+  function drawShots(dt){
+    shots = shots.filter(s=>s.life<s.max);
+    for(const s of shots){
+      s.life+=dt; s.x+=s.vx*dt; s.y+=s.vy*dt;
+      const k = Math.sin(Math.PI*Math.min(1,s.life/s.max)), v=Math.hypot(s.vx,s.vy), tx=s.x-s.vx/v*s.len, ty=s.y-s.vy/v*s.len;
+      const gr = g.createLinearGradient(s.x,s.y,tx,ty); gr.addColorStop(0,"rgba(255,255,255,"+(.95*k)+")"); gr.addColorStop(1,"rgba(180,200,255,0)");
+      g.strokeStyle=gr; g.lineWidth=1.6; g.lineCap="round"; g.beginPath(); g.moveTo(s.x,s.y); g.lineTo(tx,ty); g.stroke();
+      g.fillStyle="rgba(255,255,255,"+k+")"; g.beginPath(); g.arc(s.x,s.y,1.4,0,6.283); g.fill();
+    }
+  }
+  function spawnComet(){
+    const ltr = Math.random()<.5, y0 = H*(.55+Math.random()*.25);
+    comet = {x: ltr ? -60 : W+60, y: y0, vx: (ltr?1:-1)*(W+120)/(16+Math.random()*6), vy: -(H*.08)/18, life:0};
+  }
+  function drawComet(dt){
+    if(!comet) return;
+    comet.life+=dt; comet.x+=comet.vx*dt; comet.y+=comet.vy*dt;
+    if(comet.x<-200 || comet.x>W+200){ comet=null; return; }
+    const v=Math.hypot(comet.vx,comet.vy), ux=-comet.vx/v, uy=-comet.vy/v, nx=-uy, ny=ux, L=Math.min(380,W*.35);
+    const fade = Math.min(1, comet.life/1.5);
+    // dust tail: soft widening cone
+    const gx=comet.x+ux*L, gy=comet.y+uy*L;
+    const gr=g.createLinearGradient(comet.x,comet.y,gx,gy); gr.addColorStop(0,"rgba(215,230,255,"+(.42*fade)+")"); gr.addColorStop(1,"rgba(160,190,255,0)");
+    g.fillStyle=gr; g.beginPath(); g.moveTo(comet.x+nx*3,comet.y+ny*3); g.lineTo(gx+nx*26,gy+ny*26+10); g.lineTo(gx-nx*12,gy-ny*12); g.lineTo(comet.x-nx*3,comet.y-ny*3); g.closePath(); g.fill();
+    // ion tail: thin bright streak
+    const gi=g.createLinearGradient(comet.x,comet.y,comet.x+ux*L*1.15,comet.y+uy*L*1.15); gi.addColorStop(0,"rgba(190,230,255,"+(.7*fade)+")"); gi.addColorStop(1,"rgba(120,190,255,0)");
+    g.strokeStyle=gi; g.lineWidth=1.4; g.beginPath(); g.moveTo(comet.x,comet.y); g.lineTo(comet.x+ux*L*1.15,comet.y+uy*L*1.15); g.stroke();
+    // glowing head
+    const gh=g.createRadialGradient(comet.x,comet.y,0,comet.x,comet.y,16); gh.addColorStop(0,"rgba(255,255,255,"+fade+")"); gh.addColorStop(.3,"rgba(200,225,255,"+(.5*fade)+")"); gh.addColorStop(1,"rgba(160,200,255,0)");
+    g.fillStyle=gh; g.beginPath(); g.arc(comet.x,comet.y,16,0,6.283); g.fill();
+  }
+  function frame(now){
+    if(!running) return;
+    const dt = Math.min(.05, (now-(last||now))/1000); last=now; t+=dt;
+    g.clearRect(0,0,W,H); drawStars();
+    if(t>nextShot){ spawnShot(); nextShot=t+2.2+Math.random()*4; }
+    if(!comet && t>nextComet){ spawnComet(); nextComet=t+28+Math.random()*16; }
+    drawComet(dt); drawShots(dt);
+    raf=requestAnimationFrame(frame);
+  }
+  addEventListener("resize",()=>{ if(c.hidden) return; size(); if(reduce){ g.clearRect(0,0,W,H); drawStars(); } });
+  document.addEventListener("visibilitychange",()=>{ if(document.hidden){ cancelAnimationFrame(raf); } else if(running){ last=0; raf=requestAnimationFrame(frame); } });
+  return {
+    start(){ c.hidden=false; if(!W || W!==innerWidth || H!==innerHeight) size(); if(reduce){ g.clearRect(0,0,W,H); drawStars(); return; } if(!running){ running=true; last=0; raf=requestAnimationFrame(frame); } },
+    stop(){ running=false; cancelAnimationFrame(raf); c.hidden=true; }
+  };
+})();
+
+/* ---------- product modal ---------- */
+let mv=null, cur=null, sel={item:"tee",color:"Black",size:"M"}, modalPushed=false;
+const SIZES=["S","M","L","XL","2XL","3XL","4XL","5XL"];
+const SIZE_CHART={ tee:{w:[18,20,22,24,26,28,30,32], l:[28,29,30,31,32,33,34,35], note:"Bella+Canvas 3001 unisex tee"}, hoodie:{w:[20,22,24,26,28,30,32,34], l:[27,28,29,30,31,32,33,34], note:"Gildan 18500 unisex hoodie"} };
+const VIDEO_FOR={d1:"CHvJvQC1JUw",d2:"gfCPkLQdlvo",d3:"8u3sv4pJK1k",d4:"AoZg6VEqOLA",d5:"VGvNj6tGXog",d6:"H_JIOlExdLc",d7:"rjovJk6Hsug",g1:"_xkVhfNilaI",g2:"GHBE-wYqalI",g3:"VGvNj6tGXog",g4:"gI-uTdCoTeM",g5:"LUbzQzFMyR0",g6:"kWhpzcWpQM0",g7:"bDNseOPRsGg",g8:"H_JIOlExdLc",r1:"N-iNc-HgtRE",r2:"THTsVSDhexE",r3:"3eJIPAVQwN8"};
+const VIDEO_T={d5:6886,r3:15881};
+const BACKPRINT=new Set(["d5","g1","g2","g3","g8","r1","g6","p4"]); let side="both";
+const VIDEO_NAME={d5:"Spiritual Healing Meditation • 432 Hz Frequency Tunes",r3:"Deep Sleep Meditation • 963 Hz Solfeggio Healing Frequency"};
+const sizeUp = s => ITEMS[sel.item].apparel ? ({"2XL":4,"3XL":4,"4XL":8,"5XL":8}[s]||0) : 0;
+const priceNow = () => ITEMS[sel.item].price + sizeUp(sel.size);
+function openModal(id, fromRoute, pre){
+  cur = DESIGNS.find(d=>d.id===id); if(!cur) return; side="both";
+  const items = cur.items || ALL;
+  sel = {item:items[0], color: cardColor(cur), size:"M"};
+  if (pre && pre.item && items.includes(pre.item)) sel.item = pre.item;
+  $("#mTitle").textContent = cur.name; $("#mFrom").textContent = cur.from;
+  $("#mItems").innerHTML = items.map(k=>'<button type="button" class="item" data-item="'+k+'">'+ITEMS[k].label+'<small>'+money(ITEMS[k].price)+'</small></button>').join("");
+  $("#mItems").querySelectorAll(".item").forEach(b=>b.onclick=()=>{sel.item=b.dataset.item;refresh();});
+  $("#mSizes").innerHTML = SIZES.map(s=>'<button type="button" class="pill" data-size="'+s+'">'+s+'</button>').join("");
+  $("#mSizes").querySelectorAll(".pill").forEach(b=>b.onclick=()=>{sel.size=b.dataset.size;refresh(true);});
+  $("#modal").hidden=false; document.body.style.overflow="hidden";
+  $("#modal .sheet").scrollTop=0;
+  if(!fromRoute){ history.pushState({m:id},"","#shop/"+id); modalPushed=true; }
+  closeZoom();
+  if (pre && pre.color){ const want=String(pre.color).toLowerCase(); const c=colorsFor().find(x=>slug(x)===want||x.toLowerCase()===want); if(c) sel.color=c; }
+  refresh();
+  $("#mBack").focus({preventScroll:true});
+  document.title = cur.name+" · Native Tunes Shop";
+}
+function colorsFor(){
+  if (isApparel(sel.item)) return itemColors(cur, sel.item);
+  if (sel.item==="mug") return ["White"];
+  if (sel.item==="tote") return ["Natural"];
+  return [];
+}
+function refresh(noRebuild){
+  { const maxS=(sel.item==="hoodie"&&BACKPRINT.has(cur.id))?6:(sel.item==="tee"&&sel.color==="Purple")?7:8; $("#mSizes").querySelectorAll(".pill").forEach((b,k)=>b.hidden=k>=maxS); if(SIZES.indexOf(sel.size)>=maxS) sel.size=SIZES[maxS-1]; }
+  const cols = colorsFor();
+  if (cols.length && !cols.includes(sel.color)) sel.color = cols[0];
+  $("#mColors").parentElement.hidden = !cols.length;
+  $("#mColors").innerHTML = cols.map(c=>'<button type="button" class="pill" data-color="'+c+'"><span style="display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:-2px;background:'+COLOR_HEX[c]+';border:1px solid #c9c6bd"></span>'+c+'</button>').join("");
+  $("#mColors").querySelectorAll(".pill").forEach(b=>{ b.setAttribute("aria-pressed", b.dataset.color===sel.color); b.onclick=()=>{sel.color=b.dataset.color;refresh();}; });
+  $("#mItems").querySelectorAll(".item").forEach(b=>b.setAttribute("aria-pressed", b.dataset.item===sel.item));
+  $("#mSizes").querySelectorAll(".pill").forEach(b=>b.setAttribute("aria-pressed", b.dataset.size===sel.size));
+  $("#sizeOpt").hidden = !ITEMS[sel.item].apparel;
+  $("#mPrice").textContent = money(priceNow());
+  $("#mCare").textContent = sel.item==="tee"
+    ? "Soft, pre-shrunk 100% combed ringspun cotton (Heather Gray is a cotton blend). Printed when you order. Wash cold inside out, tumble dry low."
+    : sel.item==="hoodie" ? "Cozy cotton-poly fleece pullover hoodie with a front pocket. Printed when you order. Wash cold inside out, tumble dry low."
+    : sel.item==="mug" ? "Glossy ceramic, dishwasher and microwave safe. Printed when you order."
+    : "Printed when you order and shipped in about 3 to 7 business days.";
+  if(BACKPRINT.has(cur.id)&&(sel.item==="tee"||sel.item==="hoodie")) $("#mCare").textContent = "Full design printed on the back, with "+(cur.id==="p4"?"a gold Bitcoin coin":"Native Tunes")+" on the left chest. " + $("#mCare").textContent;
+  const ch=SIZE_CHART[sel.item]; $("#sizeGuide").hidden=!ch;
+  if(ch) $("#sizeTable").innerHTML='<tr><th>Size</th>'+SIZES.map(s=>"<th>"+s+"</th>").join("")+'</tr><tr><td>Width</td>'+ch.w.map(v=>"<td>"+v+"</td>").join("")+'</tr><tr><td>Length</td>'+ch.l.map(v=>"<td>"+v+"</td>").join("")+"</tr>";
+  $("#bundleHint").hidden = !(sel.item==="tee"||sel.item==="mug");
+  const vid=VIDEO_FOR[cur.id]||"rjovJk6Hsug", vrow=VIDS.find(v=>v[0]===vid);
+  $("#mListen").href="https://www.youtube.com/watch?v="+vid+(VIDEO_T[cur.id]?"&t="+VIDEO_T[cur.id]+"s":""); $("#mListenImg").src="https://i.ytimg.com/vi/"+vid+"/mqdefault.jpg"; $("#mListenTitle").textContent=VIDEO_NAME[cur.id]||(vrow?vrow[1]:"Native Tunes on YouTube");
+  $("#zoomImg").src = artFor(cur, sel.color, sel.item);
+  if (noRebuild) return;
+  const still = isApparel(sel.item);
+  $("#still").hidden = !still; $("#thumbs").hidden = !still;
+  $("#badge360").hidden = still; $("#spinToggle").hidden = still;
+  $("#zoomArt").textContent = "Zoom into the art";
+  if (still){
+    if(mv) mv.stop();
+    const bp=BACKPRINT.has(cur.id)&&(sel.item==="tee"||sel.item==="hoodie"); $("#sideSw").hidden=!bp;
+    const si=$("#stillImg"); si.src = bp&&side!=="back" ? mock(cur, sel.item, sel.color).replace(".webp", side==="front"?"-front.webp":"-combo.webp") : mock(cur, sel.item, sel.color); si.alt = cur.name+" "+ITEMS[sel.item].label.toLowerCase()+" in "+sel.color.toLowerCase()+(bp?(side==="front"?", front: Native Tunes on the left chest":side==="back"?", back: full design":", back and front"):"");
+    $("#sideSw").querySelectorAll("button").forEach(x=>{ x.setAttribute("aria-pressed", x.dataset.s===side); x.onclick=()=>{ side=x.dataset.s; refresh(); }; });
+    $("#thumbs").innerHTML = cols.map(c=>'<button type="button" data-c="'+c+'" aria-label="'+c+'" title="'+c+'"><img alt="" src="'+mock(cur, sel.item, c)+'"></button>').join("");
+    $("#thumbs").querySelectorAll("button").forEach(b=>{ b.setAttribute("aria-pressed", b.dataset.c===sel.color); b.onclick=()=>{ sel.color=b.dataset.c; refresh(); }; });
+  } else {
+    if(!mv && window.THREE){ mv=makeViewer($("#viewer"),{zoom:true, stopOnDrag:true, speed:2.4, onStop:()=>$("#spinToggle").textContent="Resume spin"}); }
+    if(mv){ mv.ctl.autoRotate=!reduce; $("#spinToggle").textContent=reduce?"Start spin":"Pause spin"; mv.ctl.reset();
+      mv.set(buildProduct(sel.item, Object.assign({}, cur, {img: artFor(cur, sel.color, sel.item)}), sel.color)); mv.start(); }
+  }
+}
+function hideModal(){ $("#modal").hidden=true; $("#share").hidden=true; document.body.style.overflow=""; mv&&mv.stop(); document.title="Native Tunes Shop"; }
+function closeModal(){
+  if (modalPushed){ modalPushed=false; history.back(); return; }   /* phone back button and this button behave the same */
+  hideModal();
+  if (/^#shop\//.test(location.hash)) history.replaceState(null,"","#shop");
+}
+$("#mClose").onclick=closeModal;
+$("#mBack").onclick=closeModal;
+$("#modal").addEventListener("click",e=>{ if(e.target.id==="modal") closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ if(!$("#share").hidden) $("#share").hidden=true; else if(!$("#zoomLayer").hidden) closeZoom(); else if(!$("#modal").hidden) closeModal(); else if(!$("#drawer").hidden) $("#drawer").hidden=true; } });
+$("#spinToggle").onclick=()=>{ if(!mv) return; mv.ctl.autoRotate=!mv.ctl.autoRotate; $("#spinToggle").textContent=mv.ctl.autoRotate?"Pause spin":"Resume spin"; };
+
+/* zoom: magnifier that follows the pointer (art, or the shirt photo when you tap it) */
+const zl=$("#zoomLayer"), zi=$("#zoomImg");
+function closeZoom(){ zl.hidden=true; $("#zoomArt").textContent="Zoom into the art"; }
+function openZoom(src){ zi.src=src; zl.hidden=false; zi.style.transform="translate(-50%,-50%) scale(1)"; $("#zoomArt").textContent = isApparel(sel.item) ? "Back to photo" : "Back to 360° view"; }
+$("#zoomArt").onclick=()=>{ if(zl.hidden) openZoom(artFor(cur, sel.color, sel.item)); else closeZoom(); };
+$("#still").addEventListener("click",e=>{ if(e.target.closest(".thumbs")) return; openZoom($("#stillImg").src); });
+zl.addEventListener("pointermove",e=>{ const r=zl.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; zi.style.transform="translate(calc(-50% + "+(-x*120)+"%), calc(-50% + "+(-y*120)+"%)) scale(2.6)"; });
+zl.addEventListener("pointerleave",()=>zi.style.transform="translate(-50%,-50%) scale(1)");
+zl.addEventListener("click",closeZoom);
+
+/* ---------- share sheet ---------- */
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+function copyText(txt){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(txt).catch(()=>legacyCopy(txt));
+  legacyCopy(txt); return Promise.resolve();
+}
+function legacyCopy(txt){ const t=$("#shUrl"); t.value=txt; t.select(); try{ document.execCommand("copy"); }catch(e){} }
+const ICON = (bg, label) => '<i style="background:'+bg+'">'+label+'</i>';
+function openShare(){
+  const url = location.origin + "/#shop/" + cur.id;
+  const text = cur.name + " · Native Tunes";
+  const img = isApparel(sel.item) ? mock(cur, sel.item, sel.color) : artFor(cur, sel.color, sel.item);
+  const e = encodeURIComponent, msg = e(text+" "+url);
+  $("#shImg").src = img; $("#shName").textContent = cur.name; $("#shUrl").value = url;
+  const L = [
+    ["Text message", "sms:"+(/iPhone|iPad|iPod/i.test(navigator.userAgent)?"&":"?")+"body="+msg, "#34c759", "✉"],
+    ["WhatsApp", "https://wa.me/?text="+msg, "#25d366", "W"],
+    ["Email", "mailto:?subject="+e(text)+"&body="+e("I found this and thought of you: "+url), "#5f6b7a", "@"],
+    ["Messenger", isMobile ? "fb-messenger://share/?link="+e(url) : "https://www.facebook.com/sharer/sharer.php?u="+e(url), "#0a7cff", "m"],
+    ["Facebook", "https://www.facebook.com/sharer/sharer.php?u="+e(url), "#1877f2", "f"],
+    ["X", "https://twitter.com/intent/tweet?text="+e(text)+"&url="+e(url), "#000", "𝕏"],
+    ["Instagram", "copy:https://www.instagram.com/", "radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)", "IG"],
+    ["TikTok", "copy:https://www.tiktok.com/upload", "#111", "♪"],
+    ["Pinterest", "https://pinterest.com/pin/create/button/?url="+e(url)+"&media="+e(location.origin+"/"+img)+"&description="+e(text), "#e60023", "P"],
+    ["Reddit", "https://www.reddit.com/submit?url="+e(url)+"&title="+e(text), "#ff4500", "r"]
+  ];
+  const grid = $("#shGrid");
+  grid.innerHTML = L.map(([n,href,bg,lab])=> href.startsWith("copy:")
+      ? '<button type="button" data-open="'+href.slice(5)+'" data-n="'+n+'">'+ICON(bg,lab)+n+'</button>'
+      : '<a href="'+href+'" target="_blank" rel="noopener">'+ICON(bg,lab)+n+'</a>').join("")
+    + (navigator.share ? '<button type="button" id="shMore">'+ICON("#3b4252","⋯")+'More apps</button>' : "");
+  grid.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>{ copyText(url).then(()=>toast("Link copied. Paste it into "+b.dataset.n+".")); window.open(b.dataset.open,"_blank","noopener"); });
+  const more = $("#shMore"); if(more) more.onclick=()=>{ navigator.share({title:text, text:text, url:url}).catch(()=>{}); };
+  $("#share").hidden=false; $("#shCopy").textContent="Copy link"; $("#shCopy").focus();
+}
+$("#mShare").onclick=openShare;
+$("#shCopy").onclick=()=>{ copyText($("#shUrl").value).then(()=>{ $("#shCopy").textContent="Copied!"; toast("Link copied"); }); };
+$("#shClose").onclick=()=>$("#share").hidden=true;
+$("#share").addEventListener("click",e=>{ if(e.target.id==="share") $("#share").hidden=true; });
+
+/* ---------- cart ---------- */
+let cart=[];
+try{ cart = JSON.parse(localStorage.getItem("nt-cart")||"[]").filter(l=>l.item!=="sticker"); }catch(e){ cart=[]; }
+let cartSyncT=null;
+function saveCart(){ try{ localStorage.setItem("nt-cart", JSON.stringify(cart)); }catch(e){} if(me){ clearTimeout(cartSyncT); cartSyncT=setTimeout(pushCart,1500); } }
+function pushCart(){ try{ fetch("/api/account/cart",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({lines:cart})}); }catch(e){} }
+async function syncCartAfterLogin(){ if(!me) return; if(cart.length){ pushCart(); return; } try{ const j=await (await fetch("/api/account/cart",{cache:"no-store"})).json(); if(j.ok && j.lines && j.lines.length){ cart=j.lines.filter(l=>l.item!=="sticker"); try{ localStorage.setItem("nt-cart", JSON.stringify(cart)); }catch(e){} renderCart(); } }catch(e){} }
+let promo=null;
+try{ promo = JSON.parse(localStorage.getItem("nt-promo")||"null"); }catch(e){ promo=null; }
+let shipPromo=null;
+try{ shipPromo = JSON.parse(localStorage.getItem("nt-ship")||"null"); }catch(e){ shipPromo=null; }
+function savePromo(){ try{ promo ? localStorage.setItem("nt-promo", JSON.stringify(promo)) : localStorage.removeItem("nt-promo"); shipPromo ? localStorage.setItem("nt-ship", JSON.stringify(shipPromo)) : localStorage.removeItem("nt-ship"); }catch(e){} }
+const FREE_SHIP=75, AUTO_MIN=100, SHIP=6.95, HOODIE_SHIP=9.95, BUNDLE_OFF=5;
+function totals(){
+  const sub = cart.reduce((s,l)=>s+l.price*l.qty,0);
+  const tees = cart.filter(l=>l.item==="tee").reduce((n,l)=>n+l.qty,0), mugs = cart.filter(l=>l.item==="mug").reduce((n,l)=>n+l.qty,0);
+  const bundle = Math.min(tees,mugs)*BUNDLE_OFF;
+  const goods = sub - bundle;
+  const ship = !cart.length || shipPromo || (promo && promo.owner) ? 0 : (goods>=FREE_SHIP ? 0 : (cart.some(l=>l.item==="hoodie") ? HOODIE_SHIP : SHIP));
+  const disc = promo && promo.owner ? 0 : promo && promo.percent ? Math.round(goods*promo.percent)/100 : (promo && promo.amount ? Math.min(goods, promo.amount/100) : 0);
+  const auto = !promo && goods>=AUTO_MIN ? Math.round(goods*10)/100 : 0;
+  return {sub, bundle, goods, ship, disc, auto, total: Math.max(0, goods - disc - auto) + ship};
+}
+function renderCart(){
+  $("#cartCount").textContent = cart.reduce((n,l)=>n+l.qty,0);
+  const L=$("#lines");
+  if(!cart.length){ L.innerHTML='<p class="note">Your cart is empty. Tap any design in the shop to add it.</p>'; }
+  else { L.innerHTML = cart.map((l,i)=>'<div class="line"><img alt="" src="'+l.img+'"><div><b></b><br><span class="note"></span></div><span style="font-variant-numeric:tabular-nums">'+money(l.price*l.qty)+'</span><button type="button" data-rm="'+i+'">Remove</button></div>').join("");
+    L.querySelectorAll(".line").forEach((el,i)=>{ el.querySelector("b").textContent=cart[i].name; el.querySelector(".note").textContent=cart[i].detail+(cart[i].qty>1?" · ×"+cart[i].qty:""); });
+    L.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ cart.splice(+b.dataset.rm,1); saveCart(); renderCart(); });
+  }
+  const t = totals();
+  const left = Math.max(0, FREE_SHIP - t.goods);
+  $("#shipProg").innerHTML = !cart.length ? "" : (left>0 ? "<span>You're <b>"+money(left)+"</b> away from free shipping</span>" : t.goods<AUTO_MIN ? "<span><b>🎉 Free US shipping unlocked.</b> Add <b>"+money(AUTO_MIN-t.goods)+"</b> more for a limited-time extra 10% off</span>" : "<span><b>🎉 Free shipping + extra 10% off unlocked</b></span>") + '<span class="bar"><i style="width:'+Math.min(100, (left>0 ? t.goods/FREE_SHIP : t.goods/AUTO_MIN)*100)+'%"></i></span>';
+  const rows = [["Subtotal", money(t.sub), ""]];
+  if (t.bundle) rows.push(["Tee + mug bundle", "−"+money(t.bundle), "save"]);
+  if (t.disc) rows.push(["Promo "+promo.code+(promo.percent?" ("+promo.percent+"% off)":""), "−"+money(t.disc), "save"]);
+  if (t.auto) rows.push(["Limited-time extra 10% off ($100+)", "−"+money(t.auto), "save"]);
+  if (cart.length) rows.push([shipPromo ? "Shipping ("+shipPromo.code+")" : "Shipping", t.ship ? money(t.ship) : "Free", t.ship ? "" : "save"]);
+  $("#sumLines").innerHTML = rows.map(r=>'<div class="'+r[2]+'"><span>'+r[0].replace(/</g,"&lt;")+'</span><span>'+r[1]+'</span></div>').join("");
+  $("#subtotal").textContent = money(t.total);
+  const pm=$("#promoMsg");
+  const esc=x=>String(x).replace(/</g,"&lt;"), parts=[];
+  if (promo) parts.push("✓ "+(promo.owner?"Owner code":esc(promo.code))+" applied"+(promo.owner?" · items at Printify cost + free shipping (final prices shown at checkout)":"")+(promo.firstOrderOnly?" · first order only, one use per customer":"")+'<button type="button" id="promoRemove">Remove</button>');
+  if (shipPromo) parts.push("✓ "+esc(shipPromo.code)+" · free shipping"+'<button type="button" id="shipRemove">Remove</button>');
+  if (parts.length){ pm.className="note promo-ok"; pm.innerHTML=parts.join("<br>");
+    if(promo) $("#promoRemove").onclick=()=>{ promo=null; savePromo(); $("#promoInput").value=""; renderCart(); };
+    if(shipPromo) $("#shipRemove").onclick=()=>{ shipPromo=null; savePromo(); $("#promoInput").value=""; renderCart(); }; }
+  else if (pm.classList.contains("promo-ok")){ pm.className="note"; pm.textContent=""; }
+}
+async function applyPromo(code){
+  const pm=$("#promoMsg"); code=(code||"").trim().toUpperCase();
+  if(!code){ pm.className="note"; pm.textContent="Enter a promo code."; return; }
+  pm.className="note"; pm.textContent="Checking…";
+  try{
+    const r=await fetch("/api/promo?code="+encodeURIComponent(code)); const j=await r.json();
+    if(r.ok && j.ok && j.freeShipping){ shipPromo={code:j.code}; savePromo(); $("#promoInput").value=""; renderCart(); toast("Free shipping applied"); }
+    else if(r.ok && j.ok && j.owner){ promo={code:j.code, owner:true}; shipPromo=null; savePromo(); $("#promoInput").value=""; renderCart(); toast("Owner code applied: items at cost + free shipping"); }
+    else if(r.ok && j.ok){ promo={code:j.code, percent:j.percent, amount:j.amount, firstOrderOnly:j.firstOrderOnly}; savePromo(); $("#promoInput").value=""; renderCart(); toast("Promo code applied"); }
+    else if(r.status===503){ promo={code, percent:null, amount:null}; savePromo(); renderCart(); pm.className="note promo-ok"; pm.textContent="Code saved. It will be checked at secure checkout."; }
+    else { pm.className="note"; pm.textContent=j.error||"That code isn't valid."; }
+  }catch(e){ pm.className="note"; pm.textContent="Couldn't check the code right now. You can also enter it on the checkout page."; }
+}
+$("#promoApply").onclick=()=>applyPromo($("#promoInput").value);
+$("#promoInput").addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); applyPromo(e.target.value); } });
+$("#addCart").onclick=()=>{
+  const it=ITEMS[sel.item];
+  const detail=[it.label, colorsFor().length?sel.color:null, it.apparel?sel.size:null].filter(Boolean).join(" · ");
+  const key=cur.id+"|"+detail; const ex=cart.find(l=>l.key===key);
+  if(ex) ex.qty++; else cart.push({key, id:cur.id, item:sel.item, color:colorsFor().length?sel.color:null, size:it.apparel?sel.size:null, name:cur.name, detail, img:(isApparel(sel.item)?mock(cur,sel.item,sel.color):artFor(cur,sel.color,sel.item)), price:priceNow(), qty:1});
+  saveCart(); renderCart(); toast("Added to cart: "+cur.name+" "+it.label.toLowerCase());
+};
+$("#cartBtn").onclick=()=>{ $("#drawer").hidden=false; $("#dClose").focus(); };
+$("#dClose").onclick=()=>$("#drawer").hidden=true;
+$("#checkout").onclick=async()=>{
+  const note=$("#checkoutNote");
+  if(!cart.length){ note.textContent="Add something to your cart first."; return; }
+  const lines=cart.filter(l=>l.id&&l.item).map(l=>({id:l.id,item:l.item,color:l.color,size:l.size,qty:l.qty}));
+  if(lines.length!==cart.length){ note.textContent="Please remove and re-add older items in your cart, then try again."; return; }
+  note.textContent="Opening secure checkout…"; $("#checkout").disabled=true;
+  try{
+    const r=await fetch("/api/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(Object.assign({lines}, promo?{promo:promo.code}:{}, shipPromo?{shipCode:shipPromo.code}:{}))});
+    const j=await r.json(); if(j.url){ location.href=j.url; return; }
+    if(/shipping code/i.test(j.error||"")){ shipPromo=null; savePromo(); renderCart(); note.textContent=j.error+" It was removed, so you can try again."; $("#checkout").disabled=false; return; }
+    if(/promo/i.test(j.error||"")){ promo=null; savePromo(); renderCart(); note.textContent=j.error+" It was removed, so you can try again."; $("#checkout").disabled=false; return; }
+    if(/owner|log in|no longer available|Printify/i.test(j.error||"")){ note.textContent=j.error; $("#checkout").disabled=false; return; }
+    throw new Error(j.error||"Checkout failed");
+  }catch(e){ note.textContent="Checkout couldn't open right now. Please try again in a minute, or email customerservice@nativetunesmedia.com."; }
+  $("#checkout").disabled=false;
+};
+if(/[?&]order=success/.test(location.search)){ cart=[]; saveCart(); promo=null; shipPromo=null; savePromo(); setTimeout(()=>toast("Thank you! Your order is confirmed. A receipt is on its way to your email, and we'll email your tracking number when it ships."),600); try{fetch("/api/order-complete",{method:"POST"});}catch(e){} }
+
+/* ---------- customer accounts ---------- */
+var me=null;
+const firstName=n=>String(n||"").trim().split(/\s+/)[0]||"";
+function renderAcct(){
+  const b=$("#acctBtn"); b.textContent = me ? "Welcome back, "+(firstName(me.name)||me.email)+"!" : "Log in";
+  b.setAttribute("aria-label", me ? "Your account" : "Log in or create an account");
+  const o=$("#acctOffer"); if(!o) return;
+  o.innerHTML = me ? "Checking out as <b>"+esc(me.name||me.email)+"</b>. Your saved details fill in at checkout."
+    : 'Check out faster next time: <button type="button" class="link" data-a="login">Log in</button> or <button type="button" class="link" data-a="signup">create an account</button> to save your name, address and phone. Optional.';
+  o.querySelectorAll("[data-a]").forEach(x=>x.onclick=()=>openAcct(x.dataset.a));
+}
+async function loadMe(){ try{ const r=await fetch("/api/account/me",{cache:"no-store"}); const j=await r.json(); me=j.ok?j.user:null; }catch(e){ me=null; } renderAcct(); if(me && !/[?&]order=success/.test(location.search)) syncCartAfterLogin(); }
+const F=(n,l,t,v,extra)=>'<label class="'+(extra||"")+'">'+l+'<input name="'+n+'" type="'+(t||"text")+'" value="'+esc(v||"")+'"'+(t==="password"?' autocomplete="'+(n==="password"?"current-password":"new-password")+'"':"")+'></label>';
+function profileFields(p){ p=p||{}; return F("name","Full name","text",p.name)+F("phone","Phone","tel",p.phone)+F("line1","Street address","text",p.line1)+F("line2","Apt, suite (optional)","text",p.line2)+F("city","City","text",p.city,"half")+F("state","State","text",p.state,"half")+F("zip","ZIP code","text",p.zip,"half")+'<label class="half"></label>'; }
+function openAcct(view, pre){
+  const B=$("#acctBody"); pre=pre||{};
+  if(view==="login") B.innerHTML='<h2 id="acctTitle">Log in</h2><p class="sub">Welcome back to Native Tunes.</p><form id="aForm">'+F("email","Email","email",pre.email)+F("password","Password","password")+'<p class="err" id="aErr"></p><div class="row"><button class="btn btn-gold" type="submit">Log in</button><button type="button" class="link" id="aForgot">Forgot password?</button></div><div class="row"><button type="button" class="link" data-a="signup">New here? Create an account</button></div></form>';
+  else if(view==="forgot") B.innerHTML='<h2 id="acctTitle">Reset your password</h2><p class="sub">Enter the email on your account. We\'ll email you a 6-digit code that works for 15 minutes.</p><form id="aForm">'+F("email","Email","email",pre.email)+'<p class="err" id="aErr"></p><div class="row"><button class="btn btn-gold" type="submit">Email me a code</button><button type="button" class="link" data-a="login">Back to log in</button></div></form>';
+  else if(view==="reset") B.innerHTML='<h2 id="acctTitle">Check your email</h2><p class="sub">If <b>'+esc(pre.email||"")+'</b> has an account, we just sent it a 6-digit code. It expires in 15 minutes. Check your spam folder if you don\'t see it.</p><form id="aForm"><input type="hidden" name="email" value="'+esc(pre.email||"")+'">'+F("code","6-digit code","text")+F("npw","New password (8+ characters)","password")+'<p class="err" id="aErr"></p><div class="row"><button class="btn btn-gold" type="submit">Set new password</button><button type="button" class="link" id="aResend">Resend code</button></div><div class="row"><button type="button" class="link" data-a="login">Back to log in</button></div></form>';
+  else if(view==="signup") B.innerHTML='<h2 id="acctTitle">Create your account</h2><p class="sub">'+(pre.msg||"Save your name, address and phone for faster checkout next time.")+'</p><form id="aForm">'+F("email","Email","email",pre.email)+F("password","Choose a password (8+ characters)","password")+profileFields(pre)+'<label class="chk"><input type="checkbox" name="marketing" checked><span>Email me special offers and new designs. You can unsubscribe anytime.</span></label><p class="err" id="aErr"></p><div class="row"><button class="btn btn-gold" type="submit">Create account</button><button type="button" class="link" data-a="login">Already have an account? Log in</button></div><p class="note" style="grid-column:span 2;font-size:12px">By creating an account you agree to our <a href="#privacy">Privacy policy</a>.</p></form>';
+  else B.innerHTML='<h2 id="acctTitle">Welcome back, '+esc(firstName(me.name)||me.email)+'!</h2><p class="sub">Logged in as '+esc(me.email)+'. Update your saved details for checkout.</p><form id="aForm">'+profileFields(me)+'<label class="chk"><input type="checkbox" name="marketing"'+(me.marketing?" checked":"")+'> Email me special offers and new designs.</label><p class="err" id="aErr"></p><div class="row"><button class="btn btn-gold" type="submit">Save</button><button type="button" class="link" id="aOut">Log out</button>'+(me.owner?'<a class="link" href="/api/account/export">Download customer list (CSV)</a>':'')+'</div></form><h3 class="acct-h3">Your orders</h3><div id="aOrders" class="acct-orders"><p class="note">Loading your orders…</p></div>';
+  B.querySelectorAll("[data-a]").forEach(x=>x.onclick=()=>openAcct(x.dataset.a, pre));
+  const fg=$("#aForgot"); if(fg) fg.onclick=()=>{ const em=$("#aForm").email.value; openAcct("forgot",Object.assign({},pre,{email:em})); };
+  const cd=B.querySelector('input[name=code]'); if(cd){ cd.setAttribute("inputmode","numeric"); cd.setAttribute("autocomplete","one-time-code"); cd.maxLength=6; }
+  const rs=$("#aResend"); if(rs){ const wait=s=>{ rs.disabled=true; const t=setInterval(()=>{ s--; rs.textContent=s>0?"Resend code ("+s+"s)":"Resend code"; if(s<=0){ clearInterval(t); rs.disabled=false; } },1000); rs.textContent="Resend code ("+s+"s)"; }; wait(60);
+    rs.onclick=async()=>{ $("#aErr").textContent=""; try{ const r=await fetch("/api/account/forgot",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:pre.email})}); const j=await r.json(); if(j.ok){ toast("A new code is on its way. Use the newest one."); wait(60); } else $("#aErr").textContent=j.error||"Please try again in a minute."; }catch(e){ $("#aErr").textContent="Please try again in a minute."; } }; }
+  const ao=$("#aOrders"); if(ao) loadOrders(ao);
+  const out=$("#aOut"); if(out) out.onclick=async()=>{ try{ await fetch("/api/account/logout",{method:"POST"}); }catch(e){} me=null; renderAcct(); closeAcct(); toast("You're logged out"); };
+  const f=$("#aForm"); f.onsubmit=async e=>{ e.preventDefault(); const d=Object.fromEntries(new FormData(f)); d.marketing=!!f.marketing && f.marketing.checked; if(pre.source) d.source=pre.source;
+    const btn=f.querySelector("button[type=submit]"); btn.disabled=true; $("#aErr").textContent="";
+    try{ const path={login:"login",signup:"signup",forgot:"forgot",reset:"reset"}[view]||"update"; if(view==="reset"){ d.password=d.npw; delete d.npw; } const r=await fetch("/api/account/"+path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}); const j=await r.json();
+      if(j.ok && view==="forgot"){ openAcct("reset",Object.assign({},pre,{email:d.email})); return; }
+      if(j.ok){ const wasIn=!!me; me=j.user; renderAcct(); closeAcct(); if(!wasIn) syncCartAfterLogin(); toast(view==="account"?"Saved":view==="reset"?"Password updated. Welcome back, "+(firstName(me.name)||me.email)+"!":"Welcome back, "+(firstName(me.name)||me.email)+"!"); } else $("#aErr").textContent=j.error||"Something went wrong. Please try again."; }
+    catch(err){ $("#aErr").textContent="Something went wrong. Please try again."; }
+    btn.disabled=false; };
+  $("#acctModal").hidden=false; setTimeout(()=>{ const i=f.querySelector("input"); i&&i.focus(); },50);
+}
+async function loadOrders(el){
+  try{ const j=await (await fetch("/api/account/orders",{cache:"no-store"})).json();
+    if(!j.ok){ el.innerHTML='<p class="note">Your orders couldn\'t load right now. Please try again later.</p>'; return; }
+    if(!j.orders.length){ el.innerHTML='<p class="note">No orders yet. Orders you place with this email will show up here.</p>'; return; }
+    el.innerHTML=j.orders.map(o=>'<div class="acct-order"><div class="ao-top"><b>'+new Date(o.date).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})+'</b><span class="ao-st ao-'+esc(o.status.toLowerCase().replace(/\W+/g,"-"))+'">'+esc(o.status)+'</span></div><div class="note">Order '+esc(o.number)+' · '+money(o.total/100)+'</div><ul>'+o.items.map(i=>'<li>'+esc(i.name)+(i.qty>1?' × '+i.qty:'')+'</li>').join("")+'</ul>'+(o.tracking||[]).map(t=>t.url?'<a class="link" target="_blank" rel="noopener" href="'+esc(t.url)+'">Track package'+(t.carrier?' ('+esc(t.carrier)+')':'')+'</a>':'<span class="note">'+esc((t.carrier||"Tracking")+": "+t.number)+'</span>').join(" ")+'</div>').join("");
+  }catch(e){ el.innerHTML='<p class="note">Your orders couldn\'t load right now. Please try again later.</p>'; }
+}
+function closeAcct(){ $("#acctModal").hidden=true; }
+$("#acctBtn").onclick=()=>openAcct(me?"account":"login");
+$("#acctClose").onclick=closeAcct;
+$("#acctModal").addEventListener("click",e=>{ if(e.target.id==="acctModal") closeAcct(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && !$("#acctModal").hidden) closeAcct(); });
+loadMe().then(async()=>{
+  const m=location.search.match(/[?&]session_id=([^&]+)/);
+  if(m && /[?&]order=success/.test(location.search) && !me){ try{ const r=await fetch("/api/account/from-session?session_id="+m[1]); const j=await r.json();
+    if(j.ok && !j.exists) setTimeout(()=>openAcct("signup", Object.assign({}, j.profile, {source:"checkout", msg:"Thanks for your order! Save these details for faster checkout next time: just choose a password."})), 2500); }catch(e){} }
+});
+
+/* ---------- email signup ---------- */
+$("#joinForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const msg=$("#joinMsg"), em=$("#joinEmail").value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){ msg.textContent="Please enter a valid email address."; return; }
+  msg.textContent="Joining…";
+  try{
+    const r=await fetch("/api/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:em})}); const j=await r.json();
+    if(r.ok && j.ok){ msg.innerHTML="You're in! Your code: <b>"+j.code+"</b> 10% off your first order. Enter it in your cart."; $("#joinEmail").value=""; try{localStorage.setItem("nt-joined","1");}catch(_){} }
+    else msg.textContent = r.status===503 ? "Sign-ups open in just a moment. Please try again soon." : (j.error||"Something went wrong. Please try again.");
+  }catch(_){ msg.textContent="Something went wrong. Please try again."; }
+});
+
+renderGrid(); renderCart(); route();
+})();
+</script>
+<script>(function(){var v=document.getElementById("fluteLoop");if(!v)return;v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");function go(){var p=v.play();if(p&&p.catch)p.catch(function(){});}go();v.addEventListener("pause",function(){if(!document.hidden)setTimeout(go,300);});document.addEventListener("visibilitychange",function(){if(!document.hidden)go();});["touchstart","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,go,{passive:true});});})();</script>
+</body>
+</html>
