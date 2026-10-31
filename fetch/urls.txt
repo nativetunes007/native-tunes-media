@@ -1,7 +1,2 @@
-c7_1tb.jpg https://images.printify.com/mockup/6addf1e3943ae51c9202fbd3/18101/102045/x.jpg?r=7
-c7_2tf.jpg https://images.printify.com/mockup/6addf1e3943ae51c9202fbd3/18101/102044/x.jpg?r=7
-c7_3tw.jpg https://images.printify.com/mockup/6addf1e3943ae51c9202fbd3/18541/102045/x.jpg?r=7
-c7_4hb.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32919/98425/x.jpg?r=7
-c7_5hf.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32919/98424/x.jpg?r=7
-c7_6hw.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32911/98425/x.jpg?r=7
-c7_7m.jpg https://images.printify.com/mockup/6adf91e478edb91ce70d1ee4/33719/6400/x.jpg?r=7
+c8_4hb.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32919/98425/x.jpg?r=8
+c8_6hw.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32911/98425/x.jpg?r=8
