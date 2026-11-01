@@ -1,2 +1,2 @@
-c8_4hb.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32919/98425/x.jpg?r=8
-c8_6hw.jpg https://images.printify.com/mockup/6adf83c778edb91ce70d12d5/32911/98425/x.jpg?r=8
+site_index.html https://nativetunesmedia.pages.dev/index.html
+site_live.html https://nativetunesmedia.com/
